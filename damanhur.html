@@ -51,7 +51,9 @@ body{ background:var(--night-2); padding-bottom:78px }
 /* ---------------------------------------------------------------- הירו -- */
 .hero{
   position:relative; overflow:hidden; color:var(--pale);
-  padding-block:clamp(44px,7vh,84px) clamp(38px,5.5vh,62px);
+  min-height:calc(100svh - 58px);
+  display:grid; align-content:center;
+  padding-block:clamp(28px,4vh,54px);
   background:
     radial-gradient(72% 52% at 50% -4%, rgba(242,200,121,.26), transparent 64%),
     linear-gradient(180deg, #22345F 0%, var(--night-2) 62%, var(--night) 100%);
@@ -78,6 +80,15 @@ body{ background:var(--night-2); padding-bottom:78px }
   font-size:clamp(18px,4.2vw,21px); line-height:1.6; color:#E8E0CC;
 }
 .hero__btns{ margin-top:1.9em; justify-content:center }
+.hero__scroll{ display:flex; justify-content:center; margin-top:clamp(22px,4.5vh,44px) }
+.hero__scroll span{
+  width:1.5px; height:34px; border-radius:2px;
+  background:linear-gradient(var(--gold-hi), transparent);
+}
+@media (prefers-reduced-motion: no-preference){
+  .hero__scroll span{ animation:scrollHint 2.2s ease-in-out infinite }
+}
+@keyframes scrollHint{ 0%,100%{ opacity:.3; transform:scaleY(.55); transform-origin:top } 50%{ opacity:1; transform:scaleY(1) } }
 @media (max-width:680px){
   .hero{ overflow:hidden; padding-block:clamp(40px,6vh,60px) clamp(34px,5vh,50px) }
   .hero__art{ width:130vw; inset-block-start:40% }
@@ -110,7 +121,9 @@ body{ background:var(--night-2); padding-bottom:78px }
 /* ------------------------------------------------- הפתיח · תכלס סוחף -- */
 .facts{
   position:relative; overflow:hidden;
-  padding-block:clamp(46px,7vw,80px);
+  min-height:100svh;
+  display:grid; align-content:center;
+  padding-block:clamp(28px,4vh,56px);
 }
 .facts__bg{
   position:absolute; inset:0;
@@ -170,6 +183,20 @@ body{ background:var(--night-2); padding-bottom:78px }
 
 .facts__cta{ margin-top:22px; justify-content:center }
 .facts__cta .btn--gold{ min-height:56px; padding:16px 32px; font-size:clamp(16.5px,4vw,18px) }
+@media (max-width:680px){
+  .facts{ padding-block:20px 24px }
+  .facts__big{ font-size:clamp(27px,7.4vw,34px) }
+  .facts__date{ margin-top:12px; padding:8px 18px; font-size:14px }
+  .facts__list{ margin-top:18px; gap:9px }
+  .facts__list li{ padding:11px 13px; border-radius:13px }
+  .facts__list svg{ width:22px; height:22px }
+  .facts__list span{ font-size:15.5px; line-height:1.4 }
+  .facts__price{ margin-top:16px; padding:14px 16px }
+  .facts__amt b{ font-size:clamp(34px,9vw,44px) }
+  .facts__price p{ margin-top:6px; font-size:13.5px; line-height:1.5 }
+  .facts__cta{ margin-top:14px; gap:9px }
+  .facts__cta .btn{ min-height:50px; padding:12px 22px; font-size:16px }
+}
 
 /* ----------------------------------------------------- הסיפור · כהה --- */
 .tale{
@@ -561,11 +588,12 @@ body{ background:var(--night-2); padding-bottom:78px }
  <a class="btn btn--gold" href="#registration">לשמירת מקום</a>
  <a class="btn btn--line-d" href="#journey">מה מחכה במסע</a>
  </div>
+ <div class="hero__scroll" aria-hidden="true"><span></span></div>
  </div>
 </header>
 
 <!-- ════════════ תכלס — כל העובדות מיד ════════════ -->
-<section class="facts">
+<section class="facts" id="facts">
  <div class="facts__bg" aria-hidden="true"></div>
  <div class="wrap facts__in">
 
