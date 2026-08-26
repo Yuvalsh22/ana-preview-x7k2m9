@@ -2,7 +2,6 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ana Clinic · אנה גורן, קליניקה לטיפול הוליסטי וליווי מעמיק</title>
 <meta name="description" content="קליניקה לטיפול הוליסטי, ליווי מעמיק ביצירת מציאות חדשה. ליווי מעמיק, טיפול בחרדות וחסמים רגשיים, תקשור והתקשרות, פתיחה בקלפים והכוונה. קיבוץ החותרים ומרחוק.">
@@ -170,6 +169,30 @@
   color:var(--terra); background:rgba(184,92,56,.09);
   border-radius:980px; padding:6px 14px;
 }
+.ident__cloud{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:14px 12px;
+  max-width:820px; margin:2.3em auto 0;
+}
+.idb{
+  display:inline-flex; align-items:center; text-align:center;
+  padding:16px 24px; border-radius:32px;
+  font-family:var(--serif); font-weight:500;
+  font-size:clamp(17px,3.6vw,21px); line-height:1.35; color:var(--night);
+  box-shadow:var(--shadow);
+  transition:transform var(--d-base) var(--e-out);
+}
+.idb:hover{ transform:translateY(-3px) rotate(0deg) scale(1.02) }
+.idb--1{ background:linear-gradient(150deg,#FDF3DC,#F7E3B4); transform:rotate(-1.3deg); border-radius:32px 32px 32px 12px }
+.idb--2{ background:linear-gradient(150deg,#FBE3EC,#F3C6D8); transform:rotate(1.1deg);  border-radius:32px 32px 12px 32px }
+.idb--3{ background:linear-gradient(150deg,#DFF2F1,#BFE3E1); transform:rotate(-0.8deg); border-radius:12px 32px 32px 32px }
+.idb--4{ background:linear-gradient(150deg,#EAE3F6,#D4C6EC); transform:rotate(1.4deg);  border-radius:32px 12px 32px 32px }
+.idb--5{ background:linear-gradient(150deg,#FCE9DC,#F5CFB4); transform:rotate(-1.1deg); border-radius:32px 32px 32px 12px }
+@media (prefers-reduced-motion: no-preference){
+  .idb{ animation:idbFloat 6s ease-in-out infinite }
+  .idb--2{ animation-delay:1.2s } .idb--3{ animation-delay:2.4s }
+  .idb--4{ animation-delay:3.6s } .idb--5{ animation-delay:4.8s }
+}
+@keyframes idbFloat{ 0%,100%{ translate:0 0 } 50%{ translate:0 -5px } }
 .ident__after{
   text-align:center; margin-top:2.4em;
   font-family:var(--serif); font-weight:500;
@@ -178,6 +201,17 @@
 
 /* --------------------------------------------------------------- שיטה -- */
 .how{ background:var(--cream) }
+.faucet{ display:flex; justify-content:center; margin-bottom:10px }
+@media (prefers-reduced-motion: no-preference){
+  .faucet__body{ transform-origin:50% 30%; animation:fPulse 2.6s ease-in-out infinite }
+  .faucet__drop{ animation:fDrop 2.6s cubic-bezier(.45,.05,.8,.5) infinite }
+  .faucet__splash{ opacity:0; animation:fSplash 2.6s ease-out infinite }
+}
+@keyframes fPulse{ 0%,100%{ transform:scale(1) } 12%{ transform:scale(1.045) } 24%{ transform:scale(1) } }
+@keyframes fDrop{ 0%,14%{ transform:translateY(0); opacity:0 } 20%{ opacity:1 }
+                  62%{ transform:translateY(44px); opacity:1 } 66%,100%{ transform:translateY(44px); opacity:0 } }
+@keyframes fSplash{ 0%,60%{ opacity:0; transform:scale(.4) } 68%{ opacity:.9; transform:scale(1) }
+                    88%,100%{ opacity:0; transform:scale(1.5) } }
 .how__bridge{
   max-width:var(--read); margin-inline:auto; text-align:center;
   padding:26px 26px; border-radius:18px; margin-top:1.6em;
@@ -590,7 +624,7 @@
  </div>
 
  <div class="btn-row hero__cta">
- <a class="btn btn--gold" href="contact.html">לשיחת היכרות · 20 דקות</a>
+ <a class="btn btn--gold" href="contact.html">לשיחת היכרות</a>
  <a class="btn btn--line" href="https://wa.me/972544421454">וואטסאפ</a>
  </div>
 
@@ -631,79 +665,17 @@
  <span class="eyebrow">נקודת התחלה</span>
  <h2 class="h-sect" style="margin-top:.5em; color:var(--night)">מה מעורר אצלך הזדהות?</h2>
  <p style="margin-top:1em; color:var(--ink-2)">
- לא צריך לדעת מה השם של זה. פשוט לבחור את המשפט שמרגיש מוכר , 
- ולראות מה עומד מאחוריו.
- </p>
+ לא צריך לדעת מה השם של זה. מספיק שמשפט אחד מרגיש מוכר.
+      </p>
  </div>
 
- <div class="ident__list rev" data-d="1" data-accordion>
- <details class="ident__row">
-        <summary>״הראש לא מפסיק לדאוג ממה שעוד לא קרה״</summary>
-        <div class="ident__body">
-          <span class="ident__t">ככה זה נראה ביומיום</span>
-          <p>מחכים לתשובה מהרופא ובונים תרחישים. הילד לא עונה לטלפון והלב כבר במקום אחר. גם כשהכול טוב, יש קול קטן ששואל: ומה אם.</p>
-          <span class="ident__t">מה באמת קורה שם</span>
-          <p>זה לא פגם בכם. הנפש למדה פעם שלהיות מוכנים לרע זה להיות מוגנים, ומאז היא שומרת עליכם כל הזמן. רק שהיום השמירה הזאת עולה יותר ממה שהיא נותנת.</p>
-          <span class="ident__t">ומה אפשר לעשות</span>
-          <p>כשמלמדים את המערכת, בעדינות, שהיא כבר לא חייבת לשמור, הראש מתפנה. פתאום יש מקום לרגע הזה, עכשיו.</p>
-          <span class="ident__name">פחד מאי ודאות</span>
-        </div>
-      </details>
-
-      <details class="ident__row">
-        <summary>״החרדה מנהלת אותי, לא אני אותה״</summary>
-        <div class="ident__body">
-          <span class="ident__t">ככה זה נראה ביומיום</span>
-          <p>לב דוהר בלי סיבה ברורה. נסיעה שמוותרים עליה. אירוע שמסרבים לו מראש, ליתר ביטחון. הראש אומר שהכול בסדר, והגוף לא מקשיב לו.</p>
-          <span class="ident__t">מה באמת קורה שם</span>
-          <p>חרדה היא לא חולשה. היא אזעקה שנתקעה במצב פתוח: הגוף זוכר משהו שהנפש עוד לא סיימה לעבד, ומפעיל את האזעקה גם כשאין שריפה.</p>
-          <span class="ident__t">ומה אפשר לעשות</span>
-          <p>עובדים בעדינות עם הגוף ועם מה שהוא מחזיק, והאזעקה לומדת לנוח. לא נלחמים בה. משחררים אותה.</p>
-          <span class="ident__name">חרדות וחסמים רגשיים</span>
-        </div>
-      </details>
-
-      <details class="ident__row">
-        <summary>״אני רואה את כולם. אבל מי רואה אותי?״</summary>
-        <div class="ident__body">
-          <span class="ident__t">ככה זה נראה ביומיום</span>
-          <p>תמיד יודעים מה כולם צריכים. אומרים ״לא משנה, שיהיה איך שנוח לכם״. ובערב, כשהכול שקט, עולה עצב קטן שאין לו שם.</p>
-          <span class="ident__t">מה באמת קורה שם</span>
-          <p>למדתם פעם שעל אהבה שומרים כשלא מפריעים. זה עבד אז. אבל הרצון שלכם לא נעלם, הוא רק למד לחכות בצד. והוא מחכה כבר הרבה זמן.</p>
-          <span class="ident__t">ומה אפשר לעשות</span>
-          <p>כשהרצון שלכם מקבל בחזרה מקום, מגלים שאפשר גם לאהוב וגם להיראות. זה לא או או.</p>
-          <span class="ident__name">להתחשב בכולם</span>
-        </div>
-      </details>
-
-      <details class="ident__row">
-        <summary>״קשה לי להרפות, גם כשהכול בסדר״</summary>
-        <div class="ident__body">
-          <span class="ident__t">ככה זה נראה ביומיום</span>
-          <p>רשימות בראש גם בחופשה. בודקים שוב שהדלת נעולה, שכולם בסדר, שכלום לא נופל. כי אם לא אתם, אז מי?</p>
-          <span class="ident__t">מה באמת קורה שם</span>
-          <p>מתישהו למדתם שהעולם יציב רק כשאתם מחזיקים אותו. אחריות שהגיעה מוקדם מדי ונשארה. הגוף כבר בקושי זוכר איך מרגישה הרפיה.</p>
-          <span class="ident__t">ומה אפשר לעשות</span>
-          <p>לאט ובבטחה מלמדים את הגוף שאפשר להניח, והעולם נשאר עומד. בדיוק שם מתחיל השקט האמיתי.</p>
-          <span class="ident__name">להחזיק הכול</span>
-        </div>
-      </details>
-
-      <details class="ident__row">
-        <summary>״התרחקתי מאנשים שהיו קרובים לי״</summary>
-        <div class="ident__body">
-          <span class="ident__t">ככה זה נראה ביומיום</span>
-          <p>עוד אכזבה קטנה, ומשהו נסגר עוד קצת. עונים פחות, יוזמים פחות. יום אחד מסתכלים, וקשר שהיה בית נהיה נימוס.</p>
-          <span class="ident__t">מה באמת קורה שם</span>
-          <p>הלב לא נסגר סתם. הוא בנה חומה כי כאב לו, וככה הוא ידע לשמור עליכם. רק שהחומה שעצרה את הכאב עוצרת עכשיו גם את הקרבה.</p>
-          <span class="ident__t">ומה אפשר לעשות</span>
-          <p>כשמרפאים את מה שמאחורי החומה, היא כבר לא נחוצה. הלב נפתח בקצב שלו, ואנשים מרגישים את זה.</p>
-          <span class="ident__name">להתרחק כשכואב</span>
-        </div>
-      </details>
+ <div class="ident__cloud rev" data-d="1">
+      <span class="idb idb--1">״הראש לא מפסיק לדאוג ממה שעוד לא קרה״</span>
+      <span class="idb idb--2">״החרדה מנהלת אותי, לא אני אותה״</span>
+      <span class="idb idb--3">״אני רואה את כולם. אבל מי רואה אותי?״</span>
+      <span class="idb idb--4">״קשה לי להרפות, גם כשהכול בסדר״</span>
+      <span class="idb idb--5">״התרחקתי מאנשים שהיו קרובים לי״</span>
     </div>
-
-    <p class="ident__after rev" data-d="2">כשמקום מתפנה, משהו אחר יכול להיכנס.</p>
  </div>
 </section>
 
@@ -716,21 +688,33 @@
  </div>
 
  <div class="how__bridge rev" data-d="1">
+      <div class="faucet" aria-hidden="true">
+        <svg viewBox="0 0 120 130" width="86" height="94">
+          <g class="faucet__body">
+            <rect x="18" y="30" width="66" height="16" rx="8" fill="#8A93A6"/>
+            <rect x="74" y="30" width="22" height="14" rx="7" fill="#9AA3B4"/>
+            <rect x="86" y="38" width="14" height="26" rx="7" fill="#8A93A6"/>
+            <rect x="42" y="12" width="10" height="22" rx="5" fill="#9AA3B4"/>
+            <rect x="30" y="6"  width="34" height="10" rx="5" fill="#AAB2C1"/>
+          </g>
+          <circle class="faucet__drop" cx="93" cy="72" r="6" fill="#7FB8D8"/>
+          <ellipse class="faucet__splash" cx="93" cy="118" rx="10" ry="3" fill="none" stroke="#7FB8D8" stroke-width="2"/>
+        </svg>
+      </div>
       <b>דמיינו ברז שמטפטף.</b>
       <span>
         אפשר לנגב את הרצפה כל יום, ואפשר פעם אחת לסגור את הברז.
-        רוב הזמן אנחנו מנגבים: עוד שיחה על אותו כאב, עוד ספר, עוד החלטה שהפעם יהיה אחרת.
+        רוב הזמן אנחנו מנגבים: עוד שיחה על אותו כאב, עוד החלטה שהפעם יהיה אחרת.
         ובפנים משהו ממשיך לטפטף.
-        <strong style="font-weight:600">בקליניקה הולכים אל הברז עצמו</strong>,
-        המקום שבו הגוף, הרגש והאנרגיה למדו להגיב כך. כשמטפלים שם,
-        לא צריך להילחם בהרגל כל יום. הוא פשוט מפסיק להיות נחוץ.
+        <strong style="font-weight:600">בקליניקה הולכים אל הברז עצמו</strong>:
+        אל מה שהגוף והרגש למדו פעם, וממשיכים לעשות עד היום.
       </span>
     </div>
 
  <div class="steps rev" data-d="2">
       <div class="step">
         <span class="step__n">1</span>
-        <h3>מוצאים יחד מה חוזר</h3>
+        <h3>מוצאים יחד מה הדפוס</h3>
         <p>
           שיחה פשוטה, בגובה העיניים. בלי לחפור בעבר ובלי להיזכר בכאב,
           רק לזהות יחד את הדבר שחוזר אצלכם שוב ושוב.
@@ -746,7 +730,7 @@
       </div>
       <div class="step">
         <span class="step__n">3</span>
-        <h3>נותנים לחדש להתבסס</h3>
+        <h3>מתמידים עד ההרגל</h3>
         <p>
           מלווים את השינוי בקצב שלכם עד שהוא נהיה טבעי. לא משהו שצריך
           להתאמץ לשמור עליו, פשוט ככה זה עכשיו.
@@ -1056,7 +1040,7 @@
  </p>
  <div class="social" style="margin-top:18px">
  <!-- TODO: handle אינסטגרם אמיתי -->
- <a href="#" aria-label="אינסטגרם" title="להשלים handle">
+ <a href="https://www.instagram.com/pashut.el.atzmi/" aria-label="אינסטגרם">
  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.23 1 .5 1.4.95.45.44.72.83.95 1.4.17.44.37 1.05.42 2.25.06 1.28.07 1.68.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2-.23.6-.5 1-.95 1.4-.44.45-.83.72-1.4.95-.44.17-1.05.37-2.25.42-1.28.06-1.68.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42-.6-.23-1-.5-1.4-.95-.45-.44-.72-.83-.95-1.4-.17-.44-.37-1.05-.42-2.25C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.23-.6.5-1 .95-1.4.44-.45.83-.72 1.4-.95.44-.17 1.05-.37 2.25-.42C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.5 0-4.72.07-.92.04-1.4.19-1.72.31-.44.17-.72.37-1.02.67-.3.3-.5.58-.67 1.02-.12.32-.27.8-.31 1.72C3.5 8.5 3.5 8.85 3.5 12s0 3.5.07 4.72c.4.92.19 1.4.31 1.72.17.44.37.72.67 1.02.3.3.58.5 1.02.67.32.12.8.27 1.72.31 1.22.06 1.57.07 4.72.07s3.5 0 4.72-.07c.92-.04 1.4-.19 1.72-.31.44-.17.72-.37 1.02-.67.3-.3.5-.58.67-1.02.12-.32.27-.8.31-1.72.06-1.22.07-1.57.07-4.72s0-3.5-.07-4.72c-.04-.92-.19-1.4-.31-1.72a2.7 2.7 0 00-.67-1.02 2.7 2.7 0 00-1.02-.67c-.32-.12-.8-.27-1.72-.31C15.5 4 15.15 4 12 4zm0 3.1a4.9 4.9 0 110 9.8 4.9 4.9 0 010-9.8zm0 1.8a3.1 3.1 0 100 6.2 3.1 3.1 0 000-6.2zm5.1-2.1a1.15 1.15 0 110 2.3 1.15 1.15 0 010-2.3z"/></svg>
  </a>
  <a href="https://www.facebook.com/PASHUT.EL.ATZMI/" aria-label="פייסבוק">
@@ -1066,7 +1050,6 @@
  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2A9.7 9.7 0 002.3 11.9c0 1.7.45 3.35 1.3 4.8L2.2 21.8l5.25-1.35a9.7 9.7 0 0014.25-8.55A9.7 9.7 0 0012 2.2zm0 1.8a7.9 7.9 0 110 15.8 7.9 7.9 0 01-4.1-1.15l-.3-.18-3.05.8.8-3-.18-.3A7.9 7.9 0 0112 4zm-3.6 3.7c-.18 0-.47.07-.72.34-.25.27-.95.93-.95 2.25 0 1.33.96 2.6 1.1 2.78.13.18 1.87 2.98 4.6 4.06 2.27.9 2.73.72 3.22.67.5-.04 1.6-.65 1.83-1.29.22-.63.22-1.17.16-1.28-.07-.11-.25-.18-.53-.32-.27-.13-1.6-.79-1.85-.88-.25-.09-.43-.13-.6.14-.19.27-.7.9-.86 1.08-.16.18-.32.2-.6.07-.27-.14-1.16-.43-2.2-1.36-.82-.73-1.37-1.63-1.53-1.9-.16-.28-.02-.43.12-.56.13-.14.27-.32.4-.48.14-.16.19-.27.28-.45.09-.18.04-.34-.02-.47-.07-.14-.6-1.47-.83-2-.2-.5-.4-.5-.56-.5z"/></svg>
  </a>
  </div>
- <img class="foot__sig" src="images/signature.png" alt="" width="120" height="54">
  </div>
 
  <div>
