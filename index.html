@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ana Clinic · אנה גורן, קליניקה לטיפול הוליסטי וליווי מעמיק</title>
+<meta name="description" content="קליניקה לטיפול הוליסטי, ליווי מעמיק ביצירת מציאות חדשה. ליווי מעמיק, טיפול בחרדות וחסמים רגשיים, תקשור והתקשרות, פתיחה בקלפים והכוונה. קיבוץ החותרים ומרחוק.">
+<meta property="og:title" content="Ana Clinic · אנה גורן">
+<meta property="og:description" content="נוכחות, ריפוי, אהבה.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;600&family=Frank+Ruhl+Libre:wght@300;500&family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<style>
+/* ==========================================================================
+   דף הבית v4
+   שינוי מנחה: קודם התסמין, אחר כך המונח. שום מונח מקצועי לא מופיע
+   לפני שהקוראים הזדהו עם משהו שהם מרגישים.
+   ========================================================================== */
+
+/* ---------------------------------------------------------------- הירו -- */
+.hero{
+  position:relative; overflow:hidden;
+  background:
+    radial-gradient(58% 44% at 78% 10%, rgba(242,200,121,.42), transparent 68%),
+    radial-gradient(46% 40% at 10% 90%, rgba(184,92,56,.14), transparent 70%),
+    linear-gradient(180deg, #FDF8EC 0%, var(--cream) 55%, var(--cream-2) 100%);
+  padding-block:clamp(36px,5.5vw,72px) clamp(50px,7.5vw,96px);
+}
+.hero__arcs{
+  position:absolute; inset-block-start:-6%; inset-inline-start:50%;
+  transform:translateX(-50%);
+  width:min(1250px,158vw); aspect-ratio:2/1; pointer-events:none; opacity:.42;
+}
+.hero__grid{ position:relative; z-index:2; display:grid; gap:36px; align-items:center }
+@media (min-width:900px){ .hero__grid{ grid-template-columns:1.05fr .95fr; gap:60px } }
+
+/* H1 = המשפט המיתוגי. תת־כותרת = נוכחות, ריפוי, אהבה. ואז השירותים */
+.hero h1{
+  font-family:var(--serif); font-weight:500;
+  font-size:clamp(27px,5.4vw,44px); line-height:1.22; letter-spacing:-.012em;
+  color:var(--night); margin-block:.5em .5em;
+  text-wrap:balance;
+}
+.hero h1 b{
+  font-weight:500;
+  background:linear-gradient(95deg, var(--terra) 15%, var(--gold-deep) 85%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.hero__mantra{
+  font-family:var(--serif); font-weight:300;
+  font-size:clamp(20px,3.8vw,29px); line-height:1.35; color:var(--terra);
+  letter-spacing:.02em;
+}
+.hero__svc{
+  margin-top:1.5em; padding-top:1.3em; border-top:1px solid var(--hair-c);
+  display:flex; flex-wrap:wrap; gap:7px 9px;
+}
+.hero__svc span{
+  font-size:14px; font-weight:600; letter-spacing:.01em;
+  color:var(--ink-2); background:rgba(255,253,248,.75);
+  border:1px solid var(--hair-c); border-radius:980px; padding:6px 14px;
+}
+.hero__cta{ margin-top:1.9em }
+.hero__meta{
+  margin-top:2em; display:flex; flex-wrap:wrap; gap:9px 28px;
+}
+.hero__meta div{ font-size:15px; color:var(--ink-2) }
+.hero__meta b{
+  display:block; font-size:11.5px; font-weight:600; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--terra); margin-bottom:3px;
+}
+
+.hero__fig{ position:relative }
+.hero__halo{
+  position:absolute; inset:-8% -8% auto auto; width:62%; aspect-ratio:1;
+  border-radius:50%; pointer-events:none;
+  background:radial-gradient(circle, rgba(242,200,121,.5), transparent 70%);
+  filter:blur(6px);
+}
+.hero__fig img{
+  position:relative; z-index:2;
+  width:100%; aspect-ratio:4/5; object-fit:cover; object-position:44% 30%;
+  border-radius:20px 120px 20px 20px;
+  box-shadow:var(--shadow);
+}
+.hero__fig::after{
+  content:''; position:absolute; z-index:3; inset:14px;
+  border:1px solid rgba(242,200,121,.6);
+  border-radius:12px 108px 12px 12px; pointer-events:none;
+}
+@media (max-width:900px){
+  /* פורטרט בפרופורציה נמוכה יותר, כדי שהכותרת ו-CTA יישארו בקיפול */
+  .hero__fig img{ aspect-ratio:5/4; object-position:46% 24%; max-height:min(40svh,430px);
+                  border-radius:16px 72px 16px 16px }
+  .hero__fig::after{ border-radius:10px 64px 10px 10px; inset:10px }
+  .hero__grid{ gap:26px }
+  .hero__svc span{ font-size:14px; padding:7px 14px }
+  .hero__meta div{ font-size:15.5px }
+  .hero__meta b{ font-size:12px }
+}
+
+/* ---------------------------------------------------- נשימה · v3 port -- */
+.breathe{
+  background:
+    radial-gradient(50% 60% at 50% 30%, rgba(47,143,140,.1), transparent 70%),
+    var(--cream);
+  text-align:center;
+}
+.breathe__btn{
+  position:relative; width:min(212px,58vw); aspect-ratio:1; margin:1.9em auto 0;
+  border-radius:50%; display:grid; place-items:center;
+  background:radial-gradient(circle, rgba(242,200,121,.24), rgba(47,143,140,.1) 70%);
+  border:1px solid rgba(184,92,56,.28);
+  transition:transform 4s cubic-bezier(.4,0,.5,1), box-shadow 4s ease;
+}
+.breathe__btn[data-phase="in"]{ transform:scale(1.16); box-shadow:0 0 60px -6px rgba(242,200,121,.6) }
+.breathe__btn[data-phase="hold"]{ transform:scale(1.16) }
+.breathe__btn[data-phase="out"]{ transform:scale(1); box-shadow:0 0 20px -8px rgba(242,200,121,.3) }
+.breathe__btn span{
+  font-family:var(--serif); font-weight:500; font-size:21px; color:var(--terra);
+  pointer-events:none;
+}
+.breathe__hint{ margin-top:1.3em; font-size:14.5px; color:var(--ink-2) }
+
+/* ------------------------------------------------------- הזדהות ------- */
+.ident{
+  background:
+    radial-gradient(55% 50% at 85% 0%, rgba(184,92,56,.1), transparent 65%),
+    var(--cream-2);
+}
+.ident__list{ display:grid; gap:12px; margin-top:2.3em; max-width:var(--read); margin-inline:auto }
+.ident__row{
+  background:var(--white); border-radius:16px; box-shadow:var(--shadow);
+  border-inline-start:4px solid transparent; overflow:hidden;
+}
+.ident__row:nth-child(1){ border-inline-start-color:var(--gold) }
+.ident__row:nth-child(2){ border-inline-start-color:var(--v-rose) }
+.ident__row:nth-child(3){ border-inline-start-color:var(--v-teal) }
+.ident__row:nth-child(4){ border-inline-start-color:var(--v-violet) }
+.ident__row:nth-child(5){ border-inline-start-color:var(--terra) }
+.ident__row summary{
+  list-style:none; cursor:pointer; padding:20px 22px; min-height:52px;
+  display:flex; align-items:center; gap:14px;
+  font-family:var(--serif); font-weight:500;
+  font-size:clamp(17.5px,3.4vw,22px); line-height:1.4; color:var(--night);
+}
+.ident__row summary::-webkit-details-marker{ display:none }
+.ident__row summary::after{
+  content:'+'; margin-inline-start:auto; flex-shrink:0;
+  color:var(--gold-deep); font-size:25px; font-weight:300; line-height:1;
+  transition:transform var(--d-base) var(--e-out);
+}
+.ident__row[open] summary::after{ transform:rotate(45deg) }
+.ident__body{ padding:0 22px 22px }
+.ident__body p{ font-size:16.5px; line-height:1.7; color:var(--ink-2) }
+.ident__body p + p{ margin-top:.8em }
+.ident__t{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:12.5px; font-weight:600; letter-spacing:.1em;
+  color:var(--gold-deep); margin-top:1.2em;
+}
+.ident__t::before{ content:''; width:18px; height:2px; border-radius:2px; background:var(--gold) }
+.ident__body .ident__t:first-child{ margin-top:.2em }
+.ident__name{
+  display:inline-block; margin-top:1.1em;
+  font-size:13.5px; font-weight:600; letter-spacing:.14em;
+  color:var(--terra); background:rgba(184,92,56,.09);
+  border-radius:980px; padding:6px 14px;
+}
+.ident__after{
+  text-align:center; margin-top:2.4em;
+  font-family:var(--serif); font-weight:500;
+  font-size:clamp(20px,3.9vw,29px); color:var(--terra);
+}
+
+/* --------------------------------------------------------------- שיטה -- */
+.how{ background:var(--cream) }
+.how__bridge{
+  max-width:var(--read); margin-inline:auto; text-align:center;
+  padding:26px 26px; border-radius:18px; margin-top:1.6em;
+  background:linear-gradient(160deg, rgba(217,168,78,.14), rgba(47,143,140,.07));
+}
+.how__bridge b{
+  display:block; font-family:var(--serif); font-weight:500;
+  font-size:clamp(19px,3.6vw,26px); line-height:1.35; color:var(--night); margin-bottom:.5em;
+}
+.how__bridge span{ font-size:16.5px; line-height:1.65; color:var(--ink-2) }
+
+.steps{ display:grid; gap:18px; margin-top:2.3em }
+@media (min-width:780px){ .steps{ grid-template-columns:repeat(3,1fr) } }
+.step{
+  position:relative; background:var(--white);
+  border-radius:18px; padding:32px 26px 30px;
+  box-shadow:var(--shadow); overflow:hidden;
+}
+.step::before{ content:''; position:absolute; inset-inline:0; inset-block-start:0; height:4px }
+.step:nth-child(1)::before{ background:linear-gradient(90deg, var(--gold), var(--gold-hi)) }
+.step:nth-child(2)::before{ background:linear-gradient(90deg, var(--terra), var(--v-rose)) }
+.step:nth-child(3)::before{ background:linear-gradient(90deg, var(--v-teal), var(--indigo)) }
+.step__n{
+  display:inline-grid; place-items:center;
+  width:42px; height:42px; border-radius:50%;
+  font-family:var(--serif); font-weight:500; font-size:18px;
+  color:var(--night); background:linear-gradient(180deg, var(--gold-hi), var(--gold));
+  margin-bottom:1em;
+}
+.step h3{ font-family:var(--serif); font-weight:500; font-size:21px; line-height:1.25; margin-bottom:.5em; color:var(--night) }
+.step p{ font-size:16.5px; line-height:1.65; color:var(--ink-2) }
+.how__hold{
+  max-width:var(--read); margin:2.3em auto 0; text-align:center;
+  font-size:16.5px; line-height:1.7; color:var(--ink-2);
+  padding-top:1.5em; border-top:1px solid var(--hair-c);
+}
+.how__hold b{ color:var(--night); font-weight:600 }
+
+/* ------------------------------------------------------------- שירותים - */
+.svcwrap{
+  background:
+    radial-gradient(60% 50% at 12% 0%, rgba(184,92,56,.09), transparent 65%),
+    var(--cream-2);
+}
+.svc{ display:grid; gap:18px; margin-top:2.5em }
+@media (min-width:640px){ .svc{ grid-template-columns:repeat(2,1fr) } }
+.svc__card{
+  position:relative; display:flex; flex-direction:column;
+  padding:30px 28px 26px; border-radius:18px;
+  background:var(--white); box-shadow:var(--shadow);
+  border-top:4px solid transparent;
+  transition:transform var(--d-base) var(--e-out), box-shadow var(--d-base) var(--e-out);
+}
+.svc__card:nth-child(1){ border-top-color:var(--gold) }
+.svc__card:nth-child(2){ border-top-color:var(--v-rose) }
+.svc__card:nth-child(3){ border-top-color:var(--v-teal) }
+.svc__card:nth-child(4){ border-top-color:var(--v-violet) }
+.svc__card:hover{ transform:translateY(-5px); box-shadow:0 20px 54px -12px rgba(26,18,8,.3) }
+.svc__card h3{ font-family:var(--serif); font-weight:500; font-size:23px; line-height:1.22; margin-bottom:.45em; color:var(--night) }
+.svc__card .for{ font-size:14px; font-weight:600; letter-spacing:.02em; color:var(--terra); margin-bottom:.8em }
+.svc__card p{ font-size:16.5px; line-height:1.65; color:var(--ink-2); flex:1 }
+.svc__card .more{ margin-top:1.3em; font-size:15.5px; color:var(--terra); font-weight:600 }
+.svc__deep{ margin-top:1em }
+.svc__deep summary{
+  list-style:none; cursor:pointer; display:inline-flex; align-items:center;
+  font-size:14.5px; font-weight:600; color:var(--ink-2);
+  border:1px solid var(--hair-c); border-radius:980px; padding:7px 15px;
+  min-height:38px; transition:color var(--d-base) var(--e-out), border-color var(--d-base) var(--e-out);
+}
+.svc__deep summary::-webkit-details-marker{ display:none }
+.svc__deep summary:hover{ color:var(--night); border-color:rgba(184,92,56,.4) }
+.svc__deep[open] summary{ color:var(--terra); border-color:rgba(184,92,56,.4) }
+.svc__deep ul{ list-style:none; margin-top:12px; display:flex; flex-direction:column; gap:9px }
+.svc__deep li{
+  position:relative; padding-inline-start:20px;
+  font-size:15px; line-height:1.6; color:var(--ink-2);
+}
+.svc__deep li::before{
+  content:''; position:absolute; inset-inline-start:0; inset-block-start:10px;
+  width:6px; height:6px; border-radius:50%; background:var(--gold);
+}
+
+/* --------------------------------------------------------------- אנה --- */
+.story{
+  position:relative; overflow:hidden; color:var(--pale);
+  background:
+    radial-gradient(55% 60% at 88% 6%, rgba(217,168,78,.2), transparent 62%),
+    radial-gradient(45% 55% at 5% 96%, rgba(47,143,140,.15), transparent 60%),
+    linear-gradient(172deg, var(--night-2), var(--night) 70%);
+}
+.story__grid{ position:relative; z-index:2; display:grid; gap:36px }
+@media (min-width:900px){ .story__grid{ grid-template-columns:.8fr 1.2fr; gap:60px } }
+.story h2{ color:#FDF6E4 }
+.story p{ color:var(--pale) }
+.story__side img{
+  width:100%; aspect-ratio:4/5; object-fit:cover; object-position:44% 30%;
+  border-radius:18px; box-shadow:var(--shadow);
+  border:1px solid rgba(242,200,121,.24);
+}
+/* במובייל: הפורטרט כבר בהירו. אין טעם להציג אותו שוב מעל וידאו
+   עם אותה תמונת poster — זה 900px של אותה תמונה, מסך שלם */
+@media (max-width:900px){
+  .story__side{ order:2; margin-top:.4em }
+  .story__side img{ display:none }
+  .story__text{ order:1 }
+  .vid{ margin-top:0 }
+  .vid video{ max-height:min(56svh,540px); width:auto; margin-inline:auto }
+}
+.vid{ position:relative; margin-top:16px }
+.vid video{
+  width:100%; height:auto; display:block;
+  border-radius:18px; background:#000;
+  box-shadow:var(--shadow);
+  border:1px solid rgba(242,200,121,.26);
+}
+.vid__cap{
+  margin-top:10px; font-family:var(--mono); font-size:13.5px;
+  letter-spacing:.09em; color:var(--gold-hi); text-align:center;
+}
+
+/* פרקי הסיפור — כותרת קטנה לכל פרק, כדי שאפשר יהיה לסרוק */
+.chap{ margin-top:1.9em }
+.chap__h{
+  display:flex; align-items:baseline; gap:11px; margin-bottom:.7em;
+}
+.chap__h i{
+  flex-shrink:0; font-style:normal; font-family:var(--mono);
+  font-size:12px; letter-spacing:.1em; color:var(--gold);
+}
+.chap__h b{
+  font-family:var(--serif); font-weight:500; font-size:clamp(19px,3.5vw,25px);
+  line-height:1.28; color:var(--gold-hi);
+}
+.story__pull{
+  margin-block:1.3em; padding:22px 26px; border-radius:14px;
+  background:rgba(242,200,121,.09);
+  border-inline-start:3px solid var(--gold);
+  font-family:var(--serif); font-weight:500;
+  font-size:clamp(20px,3.6vw,28px); line-height:1.4; color:var(--gold-hi);
+}
+.story__gap{
+  margin-top:1em; padding:16px 20px; border-radius:12px;
+  border:1px dashed rgba(242,200,121,.34);
+  font-size:15.5px; line-height:1.6; color:var(--pale-2);
+}
+.story__gap b{ color:var(--gold-hi); font-weight:600 }
+.story__stat{
+  display:flex; gap:32px; flex-wrap:wrap;
+  margin-top:2em; padding-top:1.6em; border-top:1px solid rgba(242,200,121,.16);
+}
+.story__stat b{
+  display:block; font-family:var(--serif); font-weight:500; font-size:38px;
+  line-height:1; margin-bottom:6px;
+  background:linear-gradient(180deg, var(--gold-hi), var(--gold));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.story__stat span{ font-size:15px; color:var(--pale-2); line-height:1.45; display:block; max-width:17ch }
+
+/* --------------------------------------------------- עדויות · וואטסאפ - */
+.says{
+  background:
+    radial-gradient(55% 50% at 15% 100%, rgba(47,143,140,.1), transparent 62%),
+    var(--cream);
+}
+.chat{
+  max-width:520px; margin:2.3em auto 0;
+  background:linear-gradient(180deg, #EDE3D4, #E7DCC9);
+  border-radius:20px; padding:18px 16px 22px;
+  box-shadow:var(--shadow);
+  border:1px solid rgba(36,31,24,.07);
+}
+.chat__top{
+  display:flex; align-items:center; gap:11px;
+  padding-bottom:14px; margin-bottom:16px;
+  border-bottom:1px solid rgba(36,31,24,.09);
+}
+.chat__top img{ width:40px; height:40px; border-radius:50%; object-fit:cover; object-position:46% 26% }
+.chat__top div b{ display:block; font-size:15.5px; font-weight:600; color:var(--ink) }
+.chat__top div span{ font-size:12.5px; color:var(--ink-2) }
+.msg{
+  position:relative; max-width:86%;
+  background:#F6EEDE; border-radius:14px 14px 14px 4px;
+  padding:11px 14px 20px; margin-bottom:11px;
+  box-shadow:0 1px 2px rgba(36,31,24,.11);
+}
+.msg p{ font-size:17px; line-height:1.55; color:var(--ink) }
+.msg__from{
+  display:block; font-size:14px; font-weight:600;
+  color:var(--v-teal); margin-bottom:4px;
+}
+.msg__t{
+  position:absolute; inset-block-end:6px; inset-inline-start:12px;
+  font-size:11px; color:var(--ink-3); display:flex; align-items:center; gap:4px;
+}
+.msg__t svg{ width:14px; height:9px; fill:none; stroke:#4FA8C7; stroke-width:1.7 }
+.chat__note{
+  margin-top:16px; padding-top:13px; border-top:1px solid rgba(36,31,24,.09);
+  font-size:14px; color:var(--ink-2); line-height:1.55; text-align:center;
+}
+.chat__slot{
+  border:1.5px dashed rgba(184,92,56,.4); border-radius:14px;
+  padding:16px 14px; text-align:center;
+  font-size:14.5px; color:var(--ink-2); line-height:1.5;
+  background:rgba(255,253,248,.5);
+}
+.chat__slot b{ display:block; color:var(--terra); font-weight:600; font-size:14px; margin-bottom:3px }
+
+/* --------------------------------------------------------- מסע · רצועה - */
+.band{
+  position:relative; overflow:hidden; color:var(--pale);
+  background:
+    radial-gradient(70% 90% at 84% -10%, rgba(124,91,166,.32), transparent 60%),
+    radial-gradient(50% 70% at 8% 110%, rgba(47,143,140,.24), transparent 65%),
+    linear-gradient(165deg, var(--night-2) 0%, var(--night) 55%, #0B1226 100%);
+}
+.band__stars{ position:absolute; inset:0; pointer-events:none; opacity:.8 }
+.band__in{ position:relative; z-index:2; padding-block:clamp(48px,7.5vw,86px) }
+.band__grid{ display:grid; gap:28px; align-items:end }
+@media (min-width:860px){ .band__grid{ grid-template-columns:1fr auto; gap:46px } }
+.band h2{
+  font-family:var(--serif); font-weight:500;
+  font-size:clamp(29px,5.4vw,46px); line-height:1.1; color:#FDF6E4;
+}
+.band h2 em{
+  font-style:normal; display:block; margin-top:.16em;
+  background:linear-gradient(90deg, var(--gold-hi), var(--v-rose));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.band p{ margin-top:1em; max-width:46ch; color:var(--pale-2); font-size:17px; line-height:1.65 }
+.band__chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:1.5em }
+.band__chips span{
+  font-family:var(--mono); font-size:12.5px; letter-spacing:.05em;
+  padding:8px 15px; border-radius:980px;
+  border:1px solid var(--hair-d); color:var(--gold-hi);
+  background:rgba(242,200,121,.07);
+}
+.band__depth{
+  display:inline-flex; align-items:center; gap:9px;
+  font-family:var(--mono); font-size:12.5px; letter-spacing:.16em;
+  color:var(--gold-hi); margin-bottom:1.1em;
+}
+.band__depth::before{ content:''; width:34px; height:1px; background:linear-gradient(90deg, var(--gold-hi), transparent) }
+.band .btn--gold{ min-height:56px; padding:16px 40px; font-size:18px }
+
+/* --------------------------------------------------------------- שו"ת -- */
+.q{
+  background:var(--white); border-radius:14px; margin-bottom:10px;
+  box-shadow:var(--shadow); overflow:hidden;
+}
+.q summary{
+  list-style:none; cursor:pointer; padding:19px 22px; min-height:52px;
+  display:flex; justify-content:space-between; align-items:center; gap:14px;
+  font-size:17px; font-weight:600; line-height:1.5; color:var(--night);
+}
+.q summary::-webkit-details-marker{ display:none }
+.q summary::after{
+  content:'+'; color:var(--gold-deep); font-size:24px; font-weight:300; line-height:1;
+  flex-shrink:0; transition:transform var(--d-base) var(--e-out);
+}
+.q[open] summary::after{ transform:rotate(45deg) }
+.q p{ padding:0 22px 20px; font-size:16px; line-height:1.7; color:var(--ink-2) }
+
+/* ---------------------------------------------------------------- CTA -- */
+.close{
+  position:relative; overflow:hidden; text-align:center; color:var(--pale);
+  background:
+    radial-gradient(60% 70% at 50% 115%, rgba(217,168,78,.32), transparent 65%),
+    linear-gradient(180deg, var(--night) 0%, var(--night-2) 100%);
+}
+.close__in{ position:relative; z-index:2 }
+.close h2{
+  font-family:var(--serif); font-weight:500;
+  font-size:clamp(28px,6vw,48px); line-height:1.18; color:#FDF6E4;
+}
+.close h2 span{
+  display:block; margin-top:.16em;
+  background:linear-gradient(90deg, var(--gold-hi), var(--terra-hi));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.close p{ margin:1.15em auto 2em; max-width:40ch; color:var(--pale-2); font-size:17.5px; line-height:1.7 }
+.close__contact{ margin-top:2.6em; font-size:15.5px; color:var(--pale-2) }
+.close__contact a{ color:var(--gold-hi); border-bottom:1px solid rgba(242,200,121,.34) }
+
+/* ── עדויות · פופקורן ── */
+.pop{ position:relative; max-width:520px; margin:2.3em auto 0; min-height:200px }
+.pop__card{
+  position:absolute; inset-inline:0; top:0;
+  background:#F6EEDE; border-radius:16px 16px 16px 5px;
+  padding:16px 18px 28px;
+  box-shadow:0 6px 26px -8px rgba(36,31,24,.3);
+  opacity:0; transform:translateY(26px) scale(.85);
+  pointer-events:none;
+}
+.pop__card.in{
+  opacity:1; transform:translateY(0) scale(1);
+  transition:opacity 480ms var(--e-reveal), transform 560ms cubic-bezier(.2,1.1,.35,1);
+  pointer-events:auto;
+}
+.pop__card.out{
+  opacity:0; transform:translateY(34px) scale(.92);
+  transition:opacity 380ms var(--e-out), transform 380ms var(--e-out);
+}
+.pop__head{ display:flex; align-items:center; gap:10px; margin-bottom:8px }
+.pop__ava{
+  width:38px; height:38px; border-radius:50%; flex-shrink:0;
+  display:grid; place-items:center;
+  font-family:var(--serif); font-weight:500; font-size:17px; color:#fff;
+}
+.pop__head b{ font-size:15px; font-weight:600; color:var(--v-teal) }
+.pop__head time{ margin-inline-start:auto; font-size:12px; color:var(--ink-3) }
+.pop__card p{ font-size:17.5px; line-height:1.55; color:var(--ink) }
+.pop__t{
+  position:absolute; inset-block-end:9px; inset-inline-start:14px;
+  display:flex; align-items:center;
+}
+.pop__t svg{ width:15px; height:9px; fill:none; stroke:#4FA8C7; stroke-width:1.7 }
+.pop__dots{
+  position:absolute; inset-block-end:-26px; inset-inline:0;
+  display:flex; justify-content:center; gap:7px;
+}
+.pop__dots i{
+  width:7px; height:7px; border-radius:50%;
+  background:var(--ink-3); opacity:.35;
+  transition:opacity var(--d-base) var(--e-out), transform var(--d-base) var(--e-out);
+}
+.pop__dots i.on{ opacity:1; background:var(--gold-deep); transform:scale(1.25) }
+.pop__note{ margin-top:3.4em; text-align:center; font-size:13.5px; color:var(--ink-2) }
+@media (prefers-reduced-motion: reduce){
+  .pop{ min-height:0 }
+  .pop__card{ position:static; opacity:1; transform:none; margin-bottom:12px; pointer-events:auto }
+  .pop__dots{ display:none }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════ ניווט ═══════════════════════════ -->
+<header class="nav">
+ <div class="wrap nav__in">
+ <a class="nav__logo" href="index.html" aria-label="Ana Clinic — לדף הבית">
+ <img src="images/logo.png" alt="Ana Clinic · אנה גורן" width="120" height="36">
+ </a>
+ <nav aria-label="ניווט ראשי">
+ <ul class="nav__list">
+ <li><a href="index.html" aria-current="page">בית</a></li>
+ <li><a href="#services">הטיפולים</a></li>
+ <li><a href="#method">השיטה</a></li>
+ <li><a href="#anna">אודות אנה</a></li>
+ <li><a href="damanhur.html">המסע לדמנהור</a></li>
+ <li><a href="blog.html">בלוג</a></li>
+ </ul>
+ </nav>
+ <div class="nav__cta"><a class="btn btn--gold" href="contact.html">לשיחת היכרות</a></div>
+ <button class="nav__burger" type="button" aria-expanded="false" aria-label="פתיחת תפריט"><span></span></button>
+ </div>
+</header>
+
+<div class="sheet" data-open="false" role="dialog" aria-label="תפריט">
+ <div class="sheet__top">
+ <img src="images/logo-light.png" alt="Ana Clinic" width="120" height="36">
+ <button class="sheet__x" type="button" aria-label="סגירת תפריט">×</button>
+ </div>
+ <ul class="sheet__list">
+ <li><a href="index.html">בית</a></li>
+ <li><a href="#identify">מה מעורר הזדהות</a></li>
+ <li><a href="#method">השיטה</a></li>
+ <li><a href="#services">הטיפולים</a></li>
+ <li class="is-sub"><a href="#services">ליווי מעמיק</a></li>
+ <li class="is-sub"><a href="#services">חרדות וחסמים רגשיים</a></li>
+ <li class="is-sub"><a href="#services">תקשור והתקשרות</a></li>
+ <li class="is-sub"><a href="#services">פתיחה בקלפים והכוונה</a></li>
+ <li><a href="#anna">אודות אנה</a></li>
+ <li><a href="damanhur.html">המסע לדמנהור</a></li>
+ <li><a href="blog.html">בלוג</a></li>
+ <li><a href="contact.html">יצירת קשר</a></li>
+ </ul>
+ <div class="sheet__foot">
+ <a class="btn btn--gold" href="contact.html" style="width:100%">לשיחת היכרות</a>
+ </div>
+</div>
+
+<main>
+
+<!-- ═══════════════════════════ הירו ═══════════════════════════ -->
+<section class="hero">
+ <svg class="hero__arcs" viewBox="0 0 1000 500" aria-hidden="true" fill="none">
+ <g stroke="#D9A84E" stroke-width="1" opacity=".5">
+ <path d="M60 500a440 440 0 01880 0"/><path d="M150 500a350 350 0 01700 0"/>
+ <path d="M240 500a260 260 0 01520 0"/><path d="M330 500a170 170 0 01340 0"/>
+ </g>
+ <g fill="#D9A84E" opacity=".75">
+ <circle cx="500" cy="62" r="3"/><circle cx="500" cy="152" r="2.4"/>
+ <circle cx="500" cy="242" r="2"/><circle cx="500" cy="332" r="1.6"/>
+ </g>
+ </svg>
+
+ <div class="wrap hero__grid">
+ <div class="rev">
+ <span class="eyebrow">Ana Clinic · אנה גורן</span>
+
+ <h1>קליניקה לטיפול הוליסטי,<br><b>ליווי מעמיק ביצירת מציאות חדשה</b></h1>
+
+ <p class="hero__mantra">נוכחות, ריפוי, אהבה.</p>
+
+ <div class="hero__svc">
+ <span>ליווי מעמיק</span>
+ <span>טיפול בחרדות וחסמים רגשיים</span>
+ <span>תקשור והתקשרות</span>
+ <span>פתיחה בקלפים והכוונה</span>
+ </div>
+
+ <div class="btn-row hero__cta">
+ <a class="btn btn--gold" href="contact.html">לשיחת היכרות · 20 דקות</a>
+ <a class="btn btn--line" href="https://wa.me/972544421454">וואטסאפ</a>
+ </div>
+
+ <div class="hero__meta">
+ <div><b>ללא עלות</b>ובלי התחייבות</div>
+ <div><b>קליניקה</b>קיבוץ החותרים</div>
+ <div><b>וגם</b>טיפולים מרחוק</div>
+ </div>
+ </div>
+
+ <figure class="hero__fig rev" data-d="1">
+ <div class="hero__halo" aria-hidden="true"></div>
+ <img src="images/anna-hero.jpg" alt="אנה גורן" width="1000" height="1250" fetchpriority="high" decoding="async">
+ </figure>
+ </div>
+</section>
+
+<!-- ═══════════════════ רגע לנשום ═══════════════════ -->
+<section class="sect sect--tight breathe">
+ <div class="wrap read rev">
+ <span class="eyebrow">לפני שממשיכים</span>
+ <h2 class="h-sect" style="margin-top:.5em; color:var(--night)">רגע אחד לעצמך</h2>
+ <button class="breathe__btn" type="button" data-phase="idle" aria-live="polite">
+ <span>לנשום רגע</span>
+ </button>
+ <p class="breathe__hint">לחצו על העיגול לשלושה סבבי נשימה. ארבע פנימה, שתיים להחזיק, שש החוצה.</p>
+ </div>
+</section>
+
+<!-- ═══════════════════ מה מעורר הזדהות ═══════════════════ -->
+<!--
+  זה הסקשן שהוחלף. הכלל: הכפתור מדבר בגוף ראשון, במילים שהקוראת
+  אומרת לעצמה. השם המקצועי מופיע רק *אחרי* שהיא פתחה.
+-->
+<section class="sect ident" id="identify">
+ <div class="wrap">
+ <div class="read center rev">
+ <span class="eyebrow">נקודת התחלה</span>
+ <h2 class="h-sect" style="margin-top:.5em; color:var(--night)">מה מעורר אצלך הזדהות?</h2>
+ <p style="margin-top:1em; color:var(--ink-2)">
+ לא צריך לדעת מה השם של זה. פשוט לבחור את המשפט שמרגיש מוכר , 
+ ולראות מה עומד מאחוריו.
+ </p>
+ </div>
+
+ <div class="ident__list rev" data-d="1" data-accordion>
+ <details class="ident__row">
+        <summary>״הראש לא מפסיק לדאוג ממה שעוד לא קרה״</summary>
+        <div class="ident__body">
+          <span class="ident__t">ככה זה נראה ביומיום</span>
+          <p>מחכים לתשובה מהרופא ובונים תרחישים. הילד לא עונה לטלפון והלב כבר במקום אחר. גם כשהכול טוב, יש קול קטן ששואל: ומה אם.</p>
+          <span class="ident__t">מה באמת קורה שם</span>
+          <p>זה לא פגם בכם. הנפש למדה פעם שלהיות מוכנים לרע זה להיות מוגנים, ומאז היא שומרת עליכם כל הזמן. רק שהיום השמירה הזאת עולה יותר ממה שהיא נותנת.</p>
+          <span class="ident__t">ומה אפשר לעשות</span>
+          <p>כשמלמדים את המערכת, בעדינות, שהיא כבר לא חייבת לשמור, הראש מתפנה. פתאום יש מקום לרגע הזה, עכשיו.</p>
+          <span class="ident__name">פחד מאי ודאות</span>
+        </div>
+      </details>
+
+      <details class="ident__row">
+        <summary>״החרדה מנהלת אותי, לא אני אותה״</summary>
+        <div class="ident__body">
+          <span class="ident__t">ככה זה נראה ביומיום</span>
+          <p>לב דוהר בלי סיבה ברורה. נסיעה שמוותרים עליה. אירוע שמסרבים לו מראש, ליתר ביטחון. הראש אומר שהכול בסדר, והגוף לא מקשיב לו.</p>
+          <span class="ident__t">מה באמת קורה שם</span>
+          <p>חרדה היא לא חולשה. היא אזעקה שנתקעה במצב פתוח: הגוף זוכר משהו שהנפש עוד לא סיימה לעבד, ומפעיל את האזעקה גם כשאין שריפה.</p>
+          <span class="ident__t">ומה אפשר לעשות</span>
+          <p>עובדים בעדינות עם הגוף ועם מה שהוא מחזיק, והאזעקה לומדת לנוח. לא נלחמים בה. משחררים אותה.</p>
+          <span class="ident__name">חרדות וחסמים רגשיים</span>
+        </div>
+      </details>
+
+      <details class="ident__row">
+        <summary>״אני רואה את כולם. אבל מי רואה אותי?״</summary>
+        <div class="ident__body">
+          <span class="ident__t">ככה זה נראה ביומיום</span>
+          <p>תמיד יודעים מה כולם צריכים. אומרים ״לא משנה, שיהיה איך שנוח לכם״. ובערב, כשהכול שקט, עולה עצב קטן שאין לו שם.</p>
+          <span class="ident__t">מה באמת קורה שם</span>
+          <p>למדתם פעם שעל אהבה שומרים כשלא מפריעים. זה עבד אז. אבל הרצון שלכם לא נעלם, הוא רק למד לחכות בצד. והוא מחכה כבר הרבה זמן.</p>
+          <span class="ident__t">ומה אפשר לעשות</span>
+          <p>כשהרצון שלכם מקבל בחזרה מקום, מגלים שאפשר גם לאהוב וגם להיראות. זה לא או או.</p>
+          <span class="ident__name">להתחשב בכולם</span>
+        </div>
+      </details>
+
+      <details class="ident__row">
+        <summary>״קשה לי להרפות, גם כשהכול בסדר״</summary>
+        <div class="ident__body">
+          <span class="ident__t">ככה זה נראה ביומיום</span>
+          <p>רשימות בראש גם בחופשה. בודקים שוב שהדלת נעולה, שכולם בסדר, שכלום לא נופל. כי אם לא אתם, אז מי?</p>
+          <span class="ident__t">מה באמת קורה שם</span>
+          <p>מתישהו למדתם שהעולם יציב רק כשאתם מחזיקים אותו. אחריות שהגיעה מוקדם מדי ונשארה. הגוף כבר בקושי זוכר איך מרגישה הרפיה.</p>
+          <span class="ident__t">ומה אפשר לעשות</span>
+          <p>לאט ובבטחה מלמדים את הגוף שאפשר להניח, והעולם נשאר עומד. בדיוק שם מתחיל השקט האמיתי.</p>
+          <span class="ident__name">להחזיק הכול</span>
+        </div>
+      </details>
+
+      <details class="ident__row">
+        <summary>״התרחקתי מאנשים שהיו קרובים לי״</summary>
+        <div class="ident__body">
+          <span class="ident__t">ככה זה נראה ביומיום</span>
+          <p>עוד אכזבה קטנה, ומשהו נסגר עוד קצת. עונים פחות, יוזמים פחות. יום אחד מסתכלים, וקשר שהיה בית נהיה נימוס.</p>
+          <span class="ident__t">מה באמת קורה שם</span>
+          <p>הלב לא נסגר סתם. הוא בנה חומה כי כאב לו, וככה הוא ידע לשמור עליכם. רק שהחומה שעצרה את הכאב עוצרת עכשיו גם את הקרבה.</p>
+          <span class="ident__t">ומה אפשר לעשות</span>
+          <p>כשמרפאים את מה שמאחורי החומה, היא כבר לא נחוצה. הלב נפתח בקצב שלו, ואנשים מרגישים את זה.</p>
+          <span class="ident__name">להתרחק כשכואב</span>
+        </div>
+      </details>
+    </div>
+
+    <p class="ident__after rev" data-d="2">כשמקום מתפנה, משהו אחר יכול להיכנס.</p>
+ </div>
+</section>
+
+<!-- ═══════════════════ השיטה ═══════════════════ -->
+<section class="sect how" id="method">
+ <div class="wrap">
+ <div class="read center rev">
+ <span class="eyebrow">איך עובדים</span>
+ <h2 class="h-sect" style="margin-top:.5em; color:var(--night)">מטפלים בשורש.<br>לא רק בסימפטום.</h2>
+ </div>
+
+ <div class="how__bridge rev" data-d="1">
+      <b>דמיינו ברז שמטפטף.</b>
+      <span>
+        אפשר לנגב את הרצפה כל יום, ואפשר פעם אחת לסגור את הברז.
+        רוב הזמן אנחנו מנגבים: עוד שיחה על אותו כאב, עוד ספר, עוד החלטה שהפעם יהיה אחרת.
+        ובפנים משהו ממשיך לטפטף.
+        <strong style="font-weight:600">בקליניקה הולכים אל הברז עצמו</strong>,
+        המקום שבו הגוף, הרגש והאנרגיה למדו להגיב כך. כשמטפלים שם,
+        לא צריך להילחם בהרגל כל יום. הוא פשוט מפסיק להיות נחוץ.
+      </span>
+    </div>
+
+ <div class="steps rev" data-d="2">
+      <div class="step">
+        <span class="step__n">1</span>
+        <h3>מוצאים יחד מה חוזר</h3>
+        <p>
+          שיחה פשוטה, בגובה העיניים. בלי לחפור בעבר ובלי להיזכר בכאב,
+          רק לזהות יחד את הדבר שחוזר אצלכם שוב ושוב.
+        </p>
+      </div>
+      <div class="step">
+        <span class="step__n">2</span>
+        <h3>משחררים אותו מהמקום</h3>
+        <p>
+          עבודה עדינה בכלים של השיטה, שמדברת לא רק אל המחשבות אלא גם אל מה
+          שהגוף והנפש מחזיקים. בלי מגע ובלי שיעורי בית. את ההקלה מרגישים בגוף.
+        </p>
+      </div>
+      <div class="step">
+        <span class="step__n">3</span>
+        <h3>נותנים לחדש להתבסס</h3>
+        <p>
+          מלווים את השינוי בקצב שלכם עד שהוא נהיה טבעי. לא משהו שצריך
+          להתאמץ לשמור עליו, פשוט ככה זה עכשיו.
+        </p>
+      </div>
+    </div>
+
+    <p class="how__hold rev" data-d="3">
+      <b>סדרה של 5 עד 8 מפגשים</b>, בקצב שלכם. מחליטים יחד אחרי הראשון,
+      בלי התחייבות מראש, וכדי שהשינוי יחזיק גם חודשים אחרי שיוצאים מהקליניקה.
+    </p>
+ </div>
+</section>
+
+<!-- ═══════════════════ הטיפולים ═══════════════════ -->
+<section class="sect svcwrap" id="services">
+  <div class="wrap">
+    <div class="read center rev">
+      <span class="eyebrow">מה יש בקליניקה</span>
+      <h2 class="h-sect" style="margin-top:.5em; color:var(--night)">ארבע דרכי עבודה</h2>
+      <p style="margin-top:1em; color:var(--ink-2)">
+        לא צריך לבחור מראש. בשיחת ההיכרות מחליטים יחד מה מתאים.
+      </p>
+    </div>
+
+    <div class="svc rev" data-d="1">
+      <div class="svc__card">
+        <h3>ליווי מעמיק</h3>
+        <p class="for">למי שכבר הבינו הכול על עצמם, ובכל זאת שום דבר לא זז</p>
+        <p>
+          תהליך מתמשך שעובד על השורש עצמו, לא על הסימפטום הבודד.
+          מערכות יחסים, זוגיות, ביטחון עצמי, תקיעות חוזרת.
+        </p>
+        <details class="svc__deep"><summary>מה זה כולל +</summary><ul>
+          <li>מפגש ראשון: מיפוי. מה חוזר, איפה זה פוגש אתכם ומה כבר ניסיתם</li>
+          <li>עבודה משולבת: שיחה, תודעה וכלים אנרגטיים, על מה שמפעיל ולא רק על מה שמורגש</li>
+          <li>סדרה של 5 עד 8 מפגשים, פרונטלי או מרחוק. בלי שיעורי בית</li>
+        </ul></details>
+        <a class="more" href="contact.html">לשיחת היכרות ←</a>
+      </div>
+
+      <div class="svc__card">
+        <h3>טיפול בחרדות וחסמים רגשיים</h3>
+        <p class="for">כשהגוף מגיב לפני שיש זמן לחשוב</p>
+        <p>
+          חרדה, פחדים, התקפים, והחסמים שנבנו סביבם. הדברים שמפסיקים לעשות
+          כדי לא לפגוש את זה. עבודה על מה שמפעיל את התגובה.
+        </p>
+        <details class="svc__deep"><summary>מה זה כולל +</summary><ul>
+          <li>עבודה על מה שמפעיל את התגובה, לא רק על ההרגעה שאחריה</li>
+          <li>כלים לרגעי הצפה, שנשארים אתכם גם אחרי הסדרה</li>
+          <li>בקצב שלכם. אף אחד לא נדחף למקום שהוא לא מוכן לו</li>
+        </ul></details>
+        <a class="more" href="contact.html">לשיחת היכרות ←</a>
+      </div>
+
+      <div class="svc__card">
+        <h3>תקשור והתקשרות</h3>
+        <p class="for">כשרוצים זווית ראייה אחרת על מסלול החיים</p>
+        <p>
+          מפגש שמאיר את התמונה הרחבה: מהות הקשרים עם הסובבים,
+          חיבור לייעוד, ורעיונות מעשיים להתמודדות עם מה שפתוח כרגע.
+        </p>
+        <details class="svc__deep"><summary>מה זה כולל +</summary><ul>
+          <li>מתאים בצומתי בחירה ובמצבי תקיעות, כשקשה לראות בבהירות</li>
+          <li>סשן ממוקד, אפשר גם מרחוק</li>
+          <li>לא מתאים כתחליף לקבלת החלטות. אם זה המצב, אגיד בכנות ואציע תהליך במקום</li>
+        </ul></details>
+        <a class="more" href="contact.html">לשיחת היכרות ←</a>
+      </div>
+
+      <div class="svc__card">
+        <h3>פתיחה בקלפים והכוונה</h3>
+        <p class="for">לצומת שצריך להחליט בה, ולא ברור לאן</p>
+        <p>
+          מפגש ממוקד וקצר יותר. הקלפים משמשים כדי להאיר את מה שכבר יודעים
+          ולא מצליחים לנסח, ומשם הכוונה מעשית לצעד הבא.
+        </p>
+        <details class="svc__deep"><summary>מה זה כולל +</summary><ul>
+          <li>מפגש ממוקד וקצר יותר, סביב שאלה או צומת אחת</li>
+          <li>הקלפים מאירים את מה שכבר יודעים ולא מצליחים לנסח</li>
+          <li>יוצאים עם כיוון מעשי לצעד הבא</li>
+        </ul></details>
+        <a class="more" href="contact.html">לשיחת היכרות ←</a>
+      </div>
+    </div>
+
+    <p class="center cap rev" data-d="2" style="margin-top:2em">
+      עמוד מפורט לכל טיפול, בדרך. בינתיים אפשר לשאול כל דבר בוואטסאפ.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════ אנה ═══════════════════ -->
+<section class="sect story" id="anna">
+  <div class="wrap story__grid">
+    <div class="story__side rev">
+      <img src="images/anna-hero.jpg" alt="אנה גורן" width="1000" height="1250" loading="lazy" decoding="async">
+      <figure class="vid">
+        <video controls playsinline preload="none"
+          poster="video/anna-reel-poster.jpg" width="864" height="1296">
+          <source src="video/anna-reel.mp4" type="video/mp4">
+          הדפדפן שלך אינו תומך בהצגת וידאו.
+        </video>
+        <figcaption class="vid__cap">אנה מספרת · 1:48</figcaption>
+      </figure>
+    </div>
+
+    <div class="story__text rev" data-d="1">
+      <span class="eyebrow eyebrow--gold">מי מלווה אותך</span>
+      <h2 class="h-big" style="margin-top:.35em">מי זו אנה גורן</h2>
+
+      <div class="chap">
+        <div class="chap__h"><i>01</i><b>הילדה שפחדה להתעורר</b></div>
+        <p>
+          אחת החוויות הקשות שחוויתי בתור ילדה הייתה להתעורר מדי בוקר.
+          אני זוכרת את עצמי פוקחת עיניים, מסתכלת בבעתה על התקרה, אימה משתקת אותי,
+          לא מסוגלת לזוז, ולא מבינה מה משתבש שאני חוזרת כל פעם מחדש למקום המפחיד הזה.
+        </p>
+        <p style="margin-top:.9em">
+          מרבית חיי רציתי לחזור הביתה. לא רציתי להיות כאן. לקח לי זמן לקבל ולהבין
+          את מהות הקיום שלי כאן, ולמצוא את הרצון לחיות באמת.
+        </p>
+        <p style="margin-top:.9em; color:var(--gold-hi)">
+          היום אני מתעוררת שמחה, סקרנית, ועם תשוקה לחיות את היום הזה.
+          <strong style="font-weight:600">אני יודעת מה זה לעבור את הדרך הזאת, כי עברתי אותה.</strong>
+        </p>
+      </div>
+
+      <div class="chap">
+        <div class="chap__h"><i>02</i><b>ומשם, לאלקטרוניקה ולהייטק</b></div>
+        <p>
+          מגיל צעיר נמשכתי למקצועות ריאליים. בתיכון למדתי במגמת חשמל ואלקטרוניקה,
+          ומשם המסלול להייטק היה טבעי וסלול. במשך 14 שנים עבדתי באינטל,
+          תכנתתי מחשבים ומכונות, הסתכלתי על מערכות, על תהליכים ועל מגמות.
+        </p>
+        <p style="margin-top:.9em">
+          הייתי טובה בזה ואהבתי את מה שעשיתי. את החברים לעבודה, את המנהלים.
+          הרגשתי שאוהבים ומעריכים אותי.
+        </p>
+        <div class="story__gap" data-todo>
+          <b>⬜ להשלים · מה גרם לך לעזוב</b>
+          הטקסט הקיים אומר ״לא עזבתי כי משהו היה חסר״. אם יש רגע, יום או הבנה
+          שהצטברה, הוא נכנס כאן. זה החלק שהופך ״עזבתי הייטק״ לסיפור.
+        </div>
+      </div>
+
+      <div class="chap">
+        <div class="chap__h"><i>03</i><b>״נו באמת!!״</b></div>
+        <p class="story__pull">
+          אבל כלי אנרגטי? משהו שלא רואים, שאין לו הוראות הפעלה? נו באמת!!
+        </p>
+        <p>
+          לא קניתי את זה בהתחלה. אז עשיתי מה שידעתי לעשות,
+          <strong style="font-weight:600; color:var(--gold-hi)">חקרתי</strong>.
+          התנסיתי על עצמי, בידדתי משתנים, תחקרתי מטופלים כדי להבין מה בדיוק קורה.
+        </p>
+        <p style="margin-top:.9em">
+          וזה עבד. שוב ושוב, גם כשעשיתי הכול כדי להוכיח לעצמי שלא.
+        </p>
+      </div>
+
+      <div class="chap">
+        <div class="chap__h"><i>04</i><b>מה אני עושה היום</b></div>
+        <p>
+          אני עובדת עם המערכת המורכבת ביותר שקיימת, האדם. הנפש, המוח, התודעה
+          והמערכת האנרגטית שמרכיבים את מי שאנחנו. הרקע הטכנולוגי הוא חלק ממה
+          שמאפשר לי לעשות את זה: פענוח של מנגנונים, ומציאת הדרך לייעל אותם.
+        </p>
+      </div>
+
+      <div class="story__stat">
+        <div><b>14</b><span>שנים בהייטק, מתוכן באינטל</span></div>
+        <div><b>2012</b><span>תחילת הלימודים באוניברסיטה הקוסמית</span></div>
+        <div><b>2021</b><span>לימודי פסיכודרמה</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ עדויות · וואטסאפ ═══════════════════ -->
+<!--
+  ⚠️ שתי ההודעות הראשונות אמיתיות (לינוי, רננה).
+  המשבצת השלישית היא PLACEHOLDER — להחליף בהודעה אמיתית בלבד.
+  אין להמציא עדות. שינוי שם לפרטיות מותר ומצוין בשורה למטה.
+-->
+<section class="sect says">
+ <div class="wrap">
+ <div class="read center rev">
+ <span class="eyebrow">מה אומרים</span>
+ <h2 class="h-sect" style="margin-top:.5em; color:var(--night)">במילים שלהם</h2>
+ <p style="margin-top:1em; color:var(--ink-2)">
+ הודעות שמגיעות אליי אחרי מפגשים ותהליכים.
+ </p>
+ </div>
+
+ <div class="pop rev" data-d="1" id="pop" aria-live="polite">
+ <!-- הכרטיסים מוזרקים מ-JS · המערך TESTIMONIALS למטה. תגובה חדשה = שורה אחת -->
+ <div class="pop__dots" id="popDots" aria-hidden="true"></div>
+ </div>
+
+ <p class="pop__note">הודעות אמיתיות מהקליניקה. השמות שונו לשמירה על פרטיות</p>
+ </div>
+</section>
+
+<!-- ═══════════════ רצועת המסע ═══════════════ -->
+<section class="band" aria-label="המסע לדמנהור">
+ <svg class="band__stars" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+ <g fill="#F2C879">
+ <circle cx="80" cy="60" r="1.4" opacity=".9"/><circle cx="220" cy="140" r="1" opacity=".6"/>
+ <circle cx="380" cy="50" r="1.2" opacity=".8"/><circle cx="530" cy="110" r=".9" opacity=".5"/>
+ <circle cx="660" cy="40" r="1.3" opacity=".7"/><circle cx="800" cy="130" r="1" opacity=".6"/>
+ <circle cx="930" cy="70" r="1.5" opacity=".9"/><circle cx="1080" cy="150" r="1" opacity=".5"/>
+ <circle cx="160" cy="250" r="1" opacity=".5"/><circle cx="480" cy="290" r="1.2" opacity=".6"/>
+ <circle cx="740" cy="260" r=".9" opacity=".5"/><circle cx="1010" cy="300" r="1.3" opacity=".7"/>
+ </g>
+ </svg>
+ <div class="wrap band__in">
+ <div class="band__grid">
+ <div class="rev">
+ <span class="band__depth mono">30 מ׳ מתחת לאדמה · איטליה</span>
+ <h2>המסע לדמנהור<em>קווי הזמן של הלב</em></h2>
+ <p>
+ שישה ימים בקהילה שחפרה מקדשים אל תוך ההר, בידיים, בסתר,
+ במשך שש עשרה שנה. בקבוצה קטנה ובליווי שלי.
+ </p>
+ <div class="band__chips">
+ <span>30.10 עד 4.11.2026</span>
+ <span>6 ימים · 5 לילות</span>
+ <span>קבוצה קטנה</span>
+ </div>
+ </div>
+ <div class="btn-row rev" data-d="1">
+ <a class="btn btn--gold" href="damanhur.html">לדף המסע ←</a>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- ═══════════════════ שו"ת ═══════════════════ -->
+<section class="sect" style="background:var(--cream-2)">
+ <div class="wrap">
+ <div class="read center rev">
+ <span class="eyebrow">שאלות ותשובות</span>
+ <h2 class="h-sect" style="margin-top:.5em; color:var(--night)">מה עוד כדאי לדעת</h2>
+ </div>
+
+ <div class="read rev" data-d="1" style="margin-top:2.2em">
+ <details class="q"><summary>צריך להאמין במשהו כדי שזה יעבוד?</summary>
+ <p>לא. אני עצמי לא האמנתי, ובדקתי. באים, מנסים, ורואים מה קורה. אין דרישה להצהיר על שום דבר.</p>
+ </details>
+ <details class="q"><summary>אני כבר בטיפול נפשי. זה מתנגש?</summary>
+ <p>לא מתנגש ולא מחליף. העבודה כאן היא בנוסף לטיפול נפשי או רפואי, לא במקומו. אם אתם בטיפול, כדאי לספר לי, ואפשר גם לעדכן את המטפל או המטפלת.</p>
+ </details>
+ <details class="q"><summary>כמה מפגשים זה לוקח?</summary>
+ <p>בדרך כלל 5 עד 8. מחליטים יחד אחרי המפגש הראשון, בלי התחייבות מראש. יש דברים שנפתרים בפחות, ויש תהליכים שנמשכים יותר, נדבר על זה בכנות כשנראה מה יש.</p>
+ </details>
+ <details class="q"><summary>מה קורה בשיחת ההיכרות?</summary>
+ <p>עשרים דקות בטלפון או בוואטסאפ, ללא עלות. מספרים לי מה מביא אתכם, אני שואלת כמה שאלות, ואומרת בכנות אם אני האדם הנכון. אם לא, אפנה אתכם למי שכן.</p>
+ </details>
+ <details class="q"><summary>אפשר מרחוק?</summary>
+ <p>כן. חלק מהעבודה מתקיימת מרחוק ועובדת מעולה. הקליניקה בקיבוץ החותרים, למי שמעדיפה פרונטלי.</p>
+ </details>
+ <details class="q" data-todo><summary>כמה זה עולה?</summary>
+ <p>⬜ <em>להשלים, מחיר מפגש ומחיר סדרה. עד אז השאלה מוסתרת מהאתר.</em></p>
+ </details>
+ <details class="q"><summary>מה המחיר?</summary>
+ <p>המחיר תלוי בסוג המפגש ובאורך התהליך, ולכן נסגר בשיחת ההיכרות, אחרי שמבינות יחד מה מתאים. השיחה עצמה ללא עלות, ומי שממשיכים יודעים את המחיר המלא לפני שמתחייבים לכל דבר.</p>
+ </details>
+ </div>
+ </div>
+</section>
+
+<!-- ═══════════════════ סגירה ═══════════════════ -->
+<section class="sect close">
+ <div class="wrap read close__in">
+ <h2 class="rev">מתחילים בשיחה.<span>זה הכול.</span></h2>
+ <p class="rev" data-d="1">
+ עשרים דקות, ללא עלות ובלי התחייבות. מספרים מה מביא אתכם,
+ ואני אומרת בכנות אם אני האדם הנכון.
+ </p>
+ <div class="btn-row btn-row--c rev" data-d="2">
+ <a class="btn btn--gold" href="https://wa.me/972544421454">לשיחת היכרות בוואטסאפ</a>
+ <a class="btn btn--line-d" href="contact.html">להשארת פרטים</a>
+ </div>
+ <p class="close__contact rev" data-d="3">
+ <a href="tel:0544421454">054 עד 4421454</a> ·
+ <a href="mailto:annagoren55@gmail.com">annagoren55@gmail.com</a><br>
+ פרונטלי בקיבוץ החותרים או מרחוק
+ </p>
+ </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════════════ פוטר ═══════════════════════════ -->
+<footer class="foot">
+ <div class="wrap">
+ <div class="foot__grid">
+ <div>
+ <div class="foot__logo"><img src="images/logo-light.png" alt="Ana Clinic · אנה גורן" width="130" height="40"></div>
+ <p style="font-size:15.5px; color:var(--pale-2); line-height:1.65; max-width:30ch">
+ קליניקה לטיפול הוליסטי, ליווי מעמיק ביצירת מציאות חדשה.
+ </p>
+ <p style="font-family:var(--serif); font-size:18px; color:var(--gold-hi); margin-top:.7em">
+ נוכחות, ריפוי, אהבה.
+ </p>
+ <div class="social" style="margin-top:18px">
+ <!-- TODO: handle אינסטגרם אמיתי -->
+ <a href="#" aria-label="אינסטגרם" title="להשלים handle">
+ <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.23 1 .5 1.4.95.45.44.72.83.95 1.4.17.44.37 1.05.42 2.25.06 1.28.07 1.68.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2-.23.6-.5 1-.95 1.4-.44.45-.83.72-1.4.95-.44.17-1.05.37-2.25.42-1.28.06-1.68.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42-.6-.23-1-.5-1.4-.95-.45-.44-.72-.83-.95-1.4-.17-.44-.37-1.05-.42-2.25C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.23-.6.5-1 .95-1.4.44-.45.83-.72 1.4-.95.44-.17 1.05-.37 2.25-.42C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.5 0-4.72.07-.92.04-1.4.19-1.72.31-.44.17-.72.37-1.02.67-.3.3-.5.58-.67 1.02-.12.32-.27.8-.31 1.72C3.5 8.5 3.5 8.85 3.5 12s0 3.5.07 4.72c.4.92.19 1.4.31 1.72.17.44.37.72.67 1.02.3.3.58.5 1.02.67.32.12.8.27 1.72.31 1.22.06 1.57.07 4.72.07s3.5 0 4.72-.07c.92-.04 1.4-.19 1.72-.31.44-.17.72-.37 1.02-.67.3-.3.5-.58.67-1.02.12-.32.27-.8.31-1.72.06-1.22.07-1.57.07-4.72s0-3.5-.07-4.72c-.04-.92-.19-1.4-.31-1.72a2.7 2.7 0 00-.67-1.02 2.7 2.7 0 00-1.02-.67c-.32-.12-.8-.27-1.72-.31C15.5 4 15.15 4 12 4zm0 3.1a4.9 4.9 0 110 9.8 4.9 4.9 0 010-9.8zm0 1.8a3.1 3.1 0 100 6.2 3.1 3.1 0 000-6.2zm5.1-2.1a1.15 1.15 0 110 2.3 1.15 1.15 0 010-2.3z"/></svg>
+ </a>
+ <a href="https://www.facebook.com/PASHUT.EL.ATZMI/" aria-label="פייסבוק">
+ <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3-.04-1.3-.13-2.45-.13-2.45 0-4.1 1.5-4.1 4.24v2.19H7.4V13h2.25v8z"/></svg>
+ </a>
+ <a href="https://wa.me/972544421454" aria-label="וואטסאפ">
+ <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2A9.7 9.7 0 002.3 11.9c0 1.7.45 3.35 1.3 4.8L2.2 21.8l5.25-1.35a9.7 9.7 0 0014.25-8.55A9.7 9.7 0 0012 2.2zm0 1.8a7.9 7.9 0 110 15.8 7.9 7.9 0 01-4.1-1.15l-.3-.18-3.05.8.8-3-.18-.3A7.9 7.9 0 0112 4zm-3.6 3.7c-.18 0-.47.07-.72.34-.25.27-.95.93-.95 2.25 0 1.33.96 2.6 1.1 2.78.13.18 1.87 2.98 4.6 4.06 2.27.9 2.73.72 3.22.67.5-.04 1.6-.65 1.83-1.29.22-.63.22-1.17.16-1.28-.07-.11-.25-.18-.53-.32-.27-.13-1.6-.79-1.85-.88-.25-.09-.43-.13-.6.14-.19.27-.7.9-.86 1.08-.16.18-.32.2-.6.07-.27-.14-1.16-.43-2.2-1.36-.82-.73-1.37-1.63-1.53-1.9-.16-.28-.02-.43.12-.56.13-.14.27-.32.4-.48.14-.16.19-.27.28-.45.09-.18.04-.34-.02-.47-.07-.14-.6-1.47-.83-2-.2-.5-.4-.5-.56-.5z"/></svg>
+ </a>
+ </div>
+ <img class="foot__sig" src="images/signature.png" alt="" width="120" height="54">
+ </div>
+
+ <div>
+ <h3>בקליניקה</h3>
+ <ul>
+ <li><a href="#services">ליווי מעמיק</a></li>
+ <li><a href="#services">טיפול בחרדות וחסמים רגשיים</a></li>
+ <li><a href="#services">תקשור והתקשרות</a></li>
+ <li><a href="#services">פתיחה בקלפים והכוונה</a></li>
+ <li><a href="#method">שיטת לוהאר׳ טיקה</a></li>
+ </ul>
+ </div>
+
+ <div>
+ <h3>בדף</h3>
+ <ul>
+ <li><a href="#identify">מה מעורר הזדהות</a></li>
+ <li><a href="#anna">אודות אנה</a></li>
+ <li><a href="damanhur.html">המסע לדמנהור</a></li>
+ <li><a href="blog.html">בלוג</a></li>
+ <li><a href="contact.html">יצירת קשר</a></li>
+ </ul>
+ </div>
+ </div>
+
+ <div class="foot__legal">
+ <span>העבודה בקליניקה אינה מחליפה טיפול רפואי או נפשי</span>
+ <span>© אנה גורן</span>
+ <span>קיבוץ החותרים</span>
+ <a href="tel:0544421454">054 עד 4421454</a>
+ </div>
+ </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+<script>
+/* תרגיל נשימה — 4 פנימה, 2 החזקה, 6 החוצה. דקה אחת. */
+(function () {
+  'use strict';
+  var btn = document.querySelector('.breathe__btn');
+  if (!btn) return;
+  var label = btn.querySelector('span');
+  var hint = document.querySelector('.breathe__hint');
+  var timer = null, cycle = 0;
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var SEQ = [
+    { phase: 'in',   text: 'שאיפה',  ms: 4000 },
+    { phase: 'hold', text: 'רגע',    ms: 2000 },
+    { phase: 'out',  text: 'נשיפה',  ms: 6000 }
+  ];
+
+  function stop() {
+    clearTimeout(timer); timer = null; cycle = 0;
+    btn.setAttribute('data-phase', 'idle');
+    label.textContent = 'לנשום רגע';
+    if (hint) hint.textContent = 'לחצו על העיגול לשלושה סבבי נשימה. ארבע פנימה, שתיים להחזיק, שש החוצה.';
+  }
+
+  function step(i) {
+    var s = SEQ[i % SEQ.length];
+    btn.setAttribute('data-phase', s.phase);
+    label.textContent = s.text;
+    timer = setTimeout(function () {
+      if (i % SEQ.length === SEQ.length - 1) {
+        cycle++;
+        if (cycle >= 3) { stop(); return; }
+      }
+      step(i + 1);
+    }, reduced ? Math.min(s.ms, 1200) : s.ms);
+  }
+
+  btn.addEventListener('click', function () {
+    if (timer) { stop(); return; }
+    if (hint) hint.textContent = 'לחיצה נוספת עוצרת.';
+    step(0);
+  });
+}());
+</script>
+<script>
+/* ── פופקורן עדויות ──
+   תגובה חדשה = אובייקט במערך. name חובה, text חובה, color אופציונלי. */
+(function () {
+  'use strict';
+  var TESTIMONIALS = [
+    { name: 'שירה',  text: 'אנה תודה! היה לי מאוד מיוחד בזמן איתך. למדתי הרבה על עצמי ואני מרגישה שריפאתי הרבה פצעים', color: '#2F8F8C' },
+    { name: 'דניאל', text: 'היום קמתי הרבה יותר טוב, עם התרגשות לא מוסברת. אני מרגיש הרבה יותר טוב! תודה רבה', color: '#2A4580' },
+    { name: 'הילה',  text: 'אני מרגישה שהשיחה שלנו פתחה עוד רובד בי. הרגשתי שאת מעבירה אותי משהו דרך איך שאת רואה אותי, וזה היה ממש מרגש 🥹', color: '#C2557E' },
+    { name: 'יונתן', text: 'תודה רבה על היום אנה, שהצלחת להכיל ולמקד אותי. אני לומד ממך המון!', color: '#B85C38' },
+    { name: 'אורית', text: 'היום טיפלתי במישהי וכמעט התעלפתי מהאנרגיה שעברה לי בידיים 😄 הרגשתי מראש את הצונאמי מתקרב', color: '#7C5BA6' },
+    { name: 'טל',    text: 'תודה על המיקוד שעשית לי 🙏 בדיוק מה שאני צריכה לעבור 💜', color: '#A87A2F' },
+    { name: 'ליאת',  text: 'תודה על הכל, אני כל כך שמחה שבחרתי אותך. לומדת ממך המון', color: '#2F8F8C' },
+    { name: 'מאיה',  text: 'כבר הקסמים נפתחים. מרגישה ואוהבת. תודה על הכל', color: '#B85C38' }
+  ];
+
+  var stage = document.getElementById('pop');
+  var dotsEl = document.getElementById('popDots');
+  if (!stage || !TESTIMONIALS.length) return;
+
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function makeCard(t) {
+    var c = document.createElement('article');
+    c.className = 'pop__card';
+    c.innerHTML =
+      '<div class="pop__head">' +
+        '<span class="pop__ava" style="background:' + (t.color || '#2F8F8C') + '">' + t.name.charAt(0) + '</span>' +
+        '<b>' + t.name + '</b><time>עכשיו</time></div>' +
+      '<p>' + t.text + '</p>' +
+      '<span class="pop__t"><svg viewBox="0 0 16 9" aria-hidden="true"><path d="M1 5l3 3 6-7M6.5 8l6-7"/></svg></span>';
+    return c;
+  }
+
+  /* reduced motion — הכול סטטי */
+  if (reduced) {
+    TESTIMONIALS.forEach(function (t) { stage.appendChild(makeCard(t)); });
+    return;
+  }
+
+  /* נקודות */
+  var dots = TESTIMONIALS.map(function () {
+    var i = document.createElement('i'); dotsEl.appendChild(i); return i;
+  });
+
+  var idx = -1, cur = null, timer = null, paused = false;
+  var HOLD = 7000;
+
+  function show(n) {
+    idx = n % TESTIMONIALS.length;
+    dots.forEach(function (d, k) { d.classList.toggle('on', k === idx); });
+
+    var next = makeCard(TESTIMONIALS[idx]);
+    stage.insertBefore(next, dotsEl);
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () { next.classList.add('in'); });
+    });
+
+    if (cur) {
+      var old = cur;
+      old.classList.remove('in'); old.classList.add('out');
+      setTimeout(function () { old.remove(); }, 460);
+    }
+    cur = next;
+  }
+
+  function tick() {
+    timer = setTimeout(function () {
+      if (!paused) show(idx + 1);
+      tick();
+    }, HOLD);
+  }
+
+  /* עצירה במגע/ריחוף — נותנים לקרוא בקצב שלך */
+  stage.addEventListener('pointerenter', function () { paused = true; });
+  stage.addEventListener('pointerleave', function () { paused = false; });
+  stage.addEventListener('click', function () { paused = false; show(idx + 1); });
+
+  /* מתחילים רק כשנכנסים לפריים */
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es, o) {
+      if (es[0].isIntersecting) { show(0); tick(); o.disconnect(); }
+    }, { threshold: 0.3 }).observe(stage);
+  } else { show(0); tick(); }
+}());
+</script>
+</body>
+</html>

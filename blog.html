@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>כתבות · Ana Clinic, אנה גורן</title>
+<meta name="description" content="על זוגיות, מערכות יחסים, חרדות ותקשור. מה שאנה גורן כותבת מתוך העבודה בקליניקה.">
+<meta property="og:title" content="כתבות · אנה גורן">
+<meta property="og:description" content="על זוגיות, מערכות יחסים ותקשור — מתוך העבודה בקליניקה.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;600&family=Frank+Ruhl+Libre:wght@300;500&family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<style>
+/* ==========================================================================
+   כתבות — עמוד עצמאי. כל התוכן כאן, אפס הפניות לאתר הישן.
+   ========================================================================== */
+
+.bhero{
+  position:relative; overflow:hidden;
+  background:
+    radial-gradient(58% 44% at 80% 6%, rgba(242,200,121,.38), transparent 68%),
+    linear-gradient(180deg, #FDF8EC 0%, var(--cream) 100%);
+  padding-block:clamp(34px,5vw,64px) clamp(30px,4.5vw,52px);
+}
+.bhero h1{
+  font-family:var(--serif); font-weight:500;
+  font-size:clamp(30px,6.6vw,52px); line-height:1.14; color:var(--night);
+  margin-block:.4em .35em;
+}
+.bhero p{ max-width:44ch; color:var(--ink-2); font-size:17.5px; line-height:1.6 }
+
+/* מסננים */
+.filters{
+  display:flex; flex-wrap:wrap; gap:8px;
+  margin-top:1.8em; padding-top:1.4em; border-top:1px solid var(--hair-c);
+}
+.filters button{
+  font-size:15px; font-weight:600; color:var(--ink-2);
+  background:rgba(255,253,248,.8); border:1px solid var(--hair-c);
+  border-radius:980px; padding:9px 18px; min-height:44px;
+  transition:background var(--d-base) var(--e-out), color var(--d-base) var(--e-out),
+             border-color var(--d-base) var(--e-out);
+}
+.filters button:hover{ background:#fff; color:var(--ink) }
+.filters button[aria-pressed="true"]{
+  background:linear-gradient(180deg, var(--gold-hi), var(--gold));
+  border-color:transparent; color:#2A1F0C;
+}
+
+/* רשימת כתבות */
+.posts{ display:grid; gap:16px; max-width:820px; margin-inline:auto }
+.post{
+  background:var(--white); border-radius:18px; box-shadow:var(--shadow);
+  border-inline-start:4px solid transparent; overflow:hidden;
+}
+.post[data-topic="יחסים"]{ border-inline-start-color:var(--v-rose) }
+.post[data-topic="תקשור"]{ border-inline-start-color:var(--v-violet) }
+.post[data-topic="הדרך שלי"]{ border-inline-start-color:var(--gold) }
+.post[hidden]{ display:none }
+
+.post summary{ list-style:none; cursor:pointer; padding:24px 24px }
+.post summary::-webkit-details-marker{ display:none }
+.post__meta{
+  display:flex; flex-wrap:wrap; align-items:center; gap:8px 12px; margin-bottom:.7em;
+}
+.post__topic{
+  font-size:12.5px; font-weight:600; letter-spacing:.08em;
+  border-radius:980px; padding:5px 12px;
+}
+.post[data-topic="יחסים"] .post__topic{ background:rgba(194,85,126,.12); color:#96375E }
+.post[data-topic="תקשור"] .post__topic{ background:rgba(124,91,166,.12); color:#61428C }
+.post[data-topic="הדרך שלי"] .post__topic{ background:rgba(184,135,58,.14); color:var(--gold-deep) }
+.post__date{ font-family:var(--mono); font-size:12.5px; color:var(--ink-3) }
+.post__read{ font-family:var(--mono); font-size:12.5px; color:var(--ink-3) }
+
+.post h2{
+  font-family:var(--serif); font-weight:500;
+  font-size:clamp(21px,4.2vw,29px); line-height:1.25; color:var(--night);
+  margin-bottom:.42em;
+}
+.post__sum{ font-size:17px; line-height:1.6; color:var(--ink-2) }
+.post__more{
+  display:inline-flex; align-items:center; gap:7px; margin-top:1em;
+  font-size:15.5px; font-weight:600; color:var(--terra);
+}
+.post__more::after{ content:'+'; font-size:20px; font-weight:300; line-height:1; transition:transform var(--d-base) var(--e-out) }
+.post[open] .post__more::after{ transform:rotate(45deg) }
+.post[open] .post__more span::after{ content:' — לסגור' }
+
+.post__body{
+  padding:0 24px 26px;
+  border-top:1px solid var(--hair-c); margin-top:4px; padding-top:20px;
+}
+.post__body p{ font-size:17px; line-height:1.75; color:var(--ink) }
+.post__body p + p{ margin-top:1em }
+.post__body h3{
+  font-family:var(--serif); font-weight:500; font-size:20px;
+  color:var(--night); margin-top:1.5em; margin-bottom:.4em;
+}
+.post__body ul{ list-style:none; margin-top:.8em; display:flex; flex-direction:column; gap:11px }
+.post__body li{ position:relative; padding-inline-start:20px; font-size:17px; line-height:1.65 }
+.post__body li::before{
+  content:''; position:absolute; inset-inline-start:0; inset-block-start:11px;
+  width:6px; height:6px; border-radius:50%; background:var(--gold);
+}
+.post__cta{
+  margin-top:1.7em; padding-top:1.3em; border-top:1px solid var(--hair-c);
+  display:flex; flex-wrap:wrap; gap:11px; align-items:center;
+}
+.post__cta span{ font-size:15.5px; color:var(--ink-2) }
+.post__cta .btn{ min-height:46px; padding:11px 22px; font-size:15.5px; flex:0 0 auto }
+
+.empty{
+  text-align:center; padding:40px 20px; color:var(--ink-2);
+  font-size:16.5px; display:none;
+}
+.empty[data-on="true"]{ display:block }
+
+/* סגירה */
+.bclose{
+  text-align:center; position:relative; overflow:hidden;
+  background:
+    radial-gradient(60% 70% at 50% 112%, rgba(217,168,78,.3), transparent 66%),
+    linear-gradient(180deg, var(--night) 0%, var(--night-2) 100%);
+  color:var(--pale);
+}
+.bclose h2{ font-family:var(--serif); font-weight:500; font-size:clamp(26px,5.6vw,42px); line-height:1.2; color:#FDF6E4 }
+.bclose p{ margin:1.05em auto 1.9em; max-width:38ch; color:var(--pale-2); font-size:17px; line-height:1.65 }
+
+@media (max-width:680px){
+  .post summary{ padding:20px 18px }
+  .post__body{ padding:20px 18px 22px }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ ניווט ═══════════ -->
+<header class="nav">
+ <div class="wrap nav__in">
+ <a class="nav__logo" href="index.html" aria-label="Ana Clinic — לדף הבית">
+ <img src="images/logo.png" alt="Ana Clinic · אנה גורן" width="120" height="36">
+ </a>
+ <nav aria-label="ניווט ראשי">
+ <ul class="nav__list">
+ <li><a href="index.html">בית</a></li>
+ <li><a href="index.html#services">הטיפולים</a></li>
+ <li><a href="index.html#method">השיטה</a></li>
+ <li><a href="index.html#anna">אודות אנה</a></li>
+ <li><a href="damanhur.html">המסע לדמנהור</a></li>
+ <li><a href="blog.html" aria-current="page">כתבות</a></li>
+ </ul>
+ </nav>
+ <div class="nav__cta"><a class="btn btn--gold" href="contact.html">לשיחת היכרות</a></div>
+ <button class="nav__burger" type="button" aria-expanded="false" aria-label="פתיחת תפריט"><span></span></button>
+ </div>
+</header>
+
+<div class="sheet" data-open="false" role="dialog" aria-label="תפריט">
+ <div class="sheet__top">
+ <img src="images/logo-light.png" alt="Ana Clinic" width="120" height="36">
+ <button class="sheet__x" type="button" aria-label="סגירת תפריט">×</button>
+ </div>
+ <ul class="sheet__list">
+ <li><a href="index.html">בית</a></li>
+ <li><a href="index.html#identify">מה מעורר הזדהות</a></li>
+ <li><a href="index.html#method">השיטה</a></li>
+ <li><a href="index.html#services">הטיפולים</a></li>
+ <li><a href="index.html#anna">אודות אנה</a></li>
+ <li><a href="damanhur.html">המסע לדמנהור</a></li>
+ <li><a href="blog.html">כתבות</a></li>
+ <li><a href="contact.html">יצירת קשר</a></li>
+ </ul>
+ <div class="sheet__foot"><a class="btn btn--gold" href="contact.html" style="width:100%">לשיחת היכרות</a></div>
+</div>
+
+<main>
+
+<!-- ═══════════ הירו ═══════════ -->
+<section class="bhero">
+ <div class="wrap">
+ <span class="eyebrow">כתבות</span>
+ <h1>מה שאני כותבת<br>מתוך העבודה</h1>
+ <p>על זוגיות, על מה שחוזר במערכות יחסים, ועל הדרך שהביאה אותי לכאן. אין כאן תיאוריה, רק מה שאני פוגשת בקליניקה ובחיים.</p>
+
+ <div class="filters" role="group" aria-label="סינון לפי נושא">
+ <button type="button" data-f="all" aria-pressed="true">הכול</button>
+ <button type="button" data-f="יחסים" aria-pressed="false">יחסים וזוגיות</button>
+ <button type="button" data-f="תקשור" aria-pressed="false">תקשור</button>
+ <button type="button" data-f="הדרך שלי" aria-pressed="false">הדרך שלי</button>
+ </div>
+ </div>
+</section>
+
+<!-- ═══════════ הכתבות ═══════════ -->
+<section class="sect" style="background:var(--cream-2); padding-top:clamp(30px,4.5vw,52px)">
+ <div class="wrap">
+ <div class="posts">
+
+ <!-- ─── 1 ─── -->
+ <details class="post" data-topic="יחסים">
+ <summary>
+ <div class="post__meta">
+ <span class="post__topic">יחסים וזוגיות</span>
+ <span class="post__date">יולי 2021</span>
+ <span class="post__read">· 3 דק׳ קריאה</span>
+ </div>
+ <h2>זוגיות בריאה היא לא זוגיות בלי מריבות</h2>
+ <p class="post__sum">
+ זוגיות שיש בה ויכוחים לרוב בריאה יותר מזוגיות ״קרה״ שבה אוגרים כעסים ושותקים.
+ מה באמת מחזיק קשר, ומה מפרק אותו בשקט.
+ </p>
+ <span class="post__more"><span>לקרוא</span></span>
+ </summary>
+ <div class="post__body">
+ <p>
+ זוגיות בריאה באה לידי ביטוי בתחושת הרמוניה, אכפתיות, שיתוף והדדיות. בני הזוג הם
+ שותפים לחיים שחולקים מגוון תחומים, ממטלות הבית ופרנסה ועד העולם הפנימי.
+ גם כשיש חילוקי דעות או כעסים, שיתוף הפעולה הוא שמעיד על רצון בשותפות.
+ </p>
+ <p>
+ וזו הנקודה שהכי מפתיעה אנשים: זוגיות בריאה אינה בהכרח זוגיות שמרגישים בה רק
+ רגשות חיוביים. הרצון והמחויבות ההדדית לטפח את הקשר, הם המפתח, לא היעדר הקושי.
+ </p>
+
+ <h3>מה מפרק זוגיות</h3>
+ <p>
+ כעסים ותחושות שלא נאמרים, או נאמרים בצורה לא נכונה, מובילים בהדרגה להתרחקות.
+ בטיפולים ובסדנאות אני שומעת שוב ושוב איך עלבון אחד שלא דובר יצר נתק עמוק.
+ </p>
+ <p>
+ <strong style="font-weight:600">זוגיות שיש בה מריבות לרוב טובה יותר מזוגיות ״קרה״</strong>
+ שלא משוחחים בה ואוגרים בה כעסים ותחושת בדידות. השתיקה היא שהופכת קשר לרעיל,
+ לא הוויכוח.
+ </p>
+
+ <h3>מה עושים</h3>
+ <p>
+ כשזוג מגיע אחרי משבר, לרוב שניהם מגיעים עם האשמות הדדיות. אבל כל אחד מביא איתו
+ דוגמה אחרת לזוגיות מבית הוריו, ורגישויות במקומות שונים, ומה שנראה כמו זדון
+ הוא בדרך כלל פשוט פרשנות אחרת.
+ </p>
+ <p>
+ העבודה היא להכיר את הרגישות הפנימית של כל אחד, ללמוד דפוסי התייחסות בריאים יותר,
+ ולרכוש מיומנויות תקשורת. זה דורש משני הצדדים להבין איפה הם עצמם נהגו לא נכון , 
+ לא רק להצביע על השני.
+ </p>
+ <div class="post__cta">
+ <span>מזדהה עם משהו כאן?</span>
+ <a class="btn btn--gold" href="contact.html">לשיחת היכרות</a>
+ </div>
+ </div>
+ </details>
+
+ <!-- ─── 2 ─── -->
+ <details class="post" data-topic="יחסים">
+ <summary>
+ <div class="post__meta">
+ <span class="post__topic">יחסים וזוגיות</span>
+ <span class="post__date">נובמבר 2020</span>
+ <span class="post__read">· 2 דק׳ קריאה</span>
+ </div>
+ <h2>אם אני לא ברורה לעצמי, איך אהיה ברורה לאחרים?</h2>
+ <p class="post__sum">
+ בתוך אדם אחד יש המון קולות, והם לא תמיד מסכימים ביניהם.
+ זה מסביר למה מערכות יחסים הן עניין כל כך מורכב.
+ </p>
+ <span class="post__more"><span>לקרוא</span></span>
+ </summary>
+ <div class="post__body">
+ <p>
+ תחשבו לרגע כמה אדם אחד, בפני עצמו ועם עצמו, הוא מורכב. יש לנו מחשבות וגם רגשות.
+ וביני לבין עצמי, אני לא תמיד מסכימה עם עצמי.
+ </p>
+ <p>
+ לפעמים אני מוצאת בתוכי מחשבות אמביוולנטיות. לפעמים רגשות אמביוולנטיים.
+ ולפעמים אמביוולנטיות בין המחשבות לרגשות: אני מבינה ומסכימה בראש על משהו,
+ אבל הלב מרגיש אחרת.
+ </p>
+ <p>
+ ולפעמים, נדיר, אבל קורה, כל הקולות משלבים ידיים ומסכימים פה אחד.
+ </p>
+ <p>
+ יש מי שיגידו ללכת עם הלב, כי הוא יודע. אחרים יגידו דווקא עם הראש, כי ההיגיון
+ חשוב יותר והלב רק מסבך. אבל השאלה האמיתית היא אחרת:
+ <strong style="font-weight:600">מה עושים עם כל הרעש הזה שקורה בתוכנו?</strong>
+ </p>
+ <p>
+ אם לפעמים אנחנו לא ברורים אפילו לעצמנו, איך נצליח להיות ברורים לאחרים?
+ זה, פחות או יותר, מסביר למה מערכות יחסים הן עניין מורכב. וזו גם הסיבה שהעבודה
+ מתחילה בפנים, לא בקשר.
+ </p>
+ <div class="post__cta">
+ <span>אפשר לעשות סדר בקולות האלה.</span>
+ <a class="btn btn--gold" href="contact.html">לשיחת היכרות</a>
+ </div>
+ </div>
+ </details>
+
+ <!-- ─── 3 ─── -->
+ <details class="post" data-topic="תקשור">
+ <summary>
+ <div class="post__meta">
+ <span class="post__topic">תקשור</span>
+ <span class="post__date">פברואר 2021</span>
+ <span class="post__read">· 3 דק׳ קריאה</span>
+ </div>
+ <h2>מתי נכון להגיע לתקשור, ומתי לא</h2>
+ <p class="post__sum">
+ יש שני מצבים שבהם תקשור באמת עוזר, ומצב אחד שבו אני מסרבת לעשות אותו.
+ הנה ההבחנה, בכנות.
+ </p>
+ <span class="post__more"><span>לקרוא</span></span>
+ </summary>
+ <div class="post__body">
+ <h3>מתי כן</h3>
+ <ul>
+ <li>
+ <strong style="font-weight:600">בצומתי בחירה.</strong>
+ לא תמיד אנחנו ערים לכל הכוחות שפועלים בתוכנו ומשפיעים על ההחלטות שלנו.
+ מול צומת גדולה הווליום מוגבר, ואיתו גם הפחדים, החששות ורעשי הרקע,
+ שמאתגרים את היכולת לראות בבהירות מה נכון לנו.
+ </li>
+ <li>
+ <strong style="font-weight:600">במצבי תקיעות.</strong>
+ לפעמים מרגישים כמו בדרך ללא מוצא, תקועים, חסרי אונים במציאות שלא מיטיבה,
+ ובלי לראות שיש בכלל אפשרויות אחרות.
+ </li>
+ </ul>
+ <p>
+ במצבים האלה התקשור נותן פרספקטיבה רחבה, מיקוד ובהירות, ומחבר אותך לעצמך.
+ משם הדרך כבר הרבה יותר ברורה.
+ </p>
+
+ <h3>ומתי לא</h3>
+ <p>
+ מי שמתקשה לקבל החלטות ומחפש לקבל תשובות מבחוץ, <strong style="font-weight:600">לא מתאים לתקשור.</strong>
+ במצב כזה סשן תקשורי רק ינציח את הקושי ואת חוסר המסוגלות.
+ </p>
+ <p>
+ כשמגיע אליי אדם שאני מזהה שזה האתגר שלו, אני לא מקבלת אותו לתקשור. אני מזמינה
+ אותו לתהליך שבו יקבל כלים להתמודד עם הקושי ולפתח את היכולת שלו להחליט בעצמו.
+ ובסיום התהליך, הסשן התקשורי הוא מתנה ממני.
+ </p>
+ <div class="post__cta">
+ <span>לא בטוחה מה מתאים לך?</span>
+ <a class="btn btn--gold" href="contact.html">נברר יחד</a>
+ </div>
+ </div>
+ </details>
+
+ <!-- ─── 4 ─── -->
+ <details class="post" data-topic="יחסים">
+ <summary>
+ <div class="post__meta">
+ <span class="post__topic">יחסים וזוגיות</span>
+ <span class="post__date">אוגוסט 2020</span>
+ <span class="post__read">· 3 דק׳ קריאה</span>
+ </div>
+ <h2>״אנחנו לא חייבים להסכים על הכול״</h2>
+ <p class="post__sum">
+ משפט אחד שבעלי אמר לי, ולקח לי שנים להטמיע אותו.
+ בהתחלה הוא פשוט שיגע אותי.
+ </p>
+ <span class="post__more"><span>לקרוא</span></span>
+ </summary>
+ <div class="post__body">
+ <p>
+ בועז, בעלי, ואני לא תמיד מסכימים על הדרך, בעיקר כשמדובר בילדים. לפעמים אחד
+ מאיתנו מייצג גישה נוקשה והשני רכה, ולפעמים בדיוק להפך. כמה להתעקש על שיעורי בית
+ וכמה להרפות. מה עושים כשהם לא רוצים לאכול את מה שהכנו. עד כמה גמישים בענייני סוכר.
+ </p>
+ <p>
+ בתחילת דרכנו כהורים התעקשתי מאוד על דעותיי. הייתי בטוחה שהאופן שבו אני רואה את
+ הדברים נכון יותר, והוא לרוב ויתר לי ואימץ את הדרך שלי בלית ברירה.
+ </p>
+ <p>
+ ובאותם מצבים הוא נהג לומר לי: <strong style="font-weight:600">״אנחנו לא חייבים להסכים על הכול״.</strong>
+ לקח לי כמה שנים להטמיע את המשפט הזה. בהתחלה הוא פשוט שיגע אותי, בתפיסה שלי,
+ שני הורים חייבים להסכים, בוודאי בחינוך.
+ </p>
+
+ <h3>מה שינה את זה</h3>
+ <p>
+ עם השנים, כשהמשפט הזה הדהד ברקע, התבהרה בי ההכרה שבועז רוצה את טובת הילדים
+ בדיוק כמוני. והתחלתי להרגיש חוסר הוגנות בכך שדעתי היא תמיד זו שגוברת , 
+ כמה אני לא הייתי רוצה שזה יהיה הפוך.
+ </p>
+ <p>
+ הלב שלי נפתח לאט, עד שהבנתי, לא רק בראש אלא גם בלב, שיש מקום גם לדעותיו,
+ גם כשהן סותרות את שלי, וגם כשמדובר בילדים.
+ </p>
+ <p>
+ והתגלה משהו מפתיע: כשהסכמתי שעם אמא אסור משהו ועם אבא מותר, זה לא בלבל אותם.
+ זה לימד אותם שלכל אחד דעה משלו, ושיש מקום לקבל דעות של אחרים גם כשהן שונות
+ מאוד משלך. וגם, שיש להם עצמם זכות להחזיק דעה שונה משלנו.
+ </p>
+ <div class="post__cta">
+ <span>גם אצלכם זה חוזר?</span>
+ <a class="btn btn--gold" href="contact.html">לשיחת היכרות</a>
+ </div>
+ </div>
+ </details>
+
+ <!-- ─── 5 ─── -->
+ <details class="post" data-topic="תקשור">
+ <summary>
+ <div class="post__meta">
+ <span class="post__topic">תקשור</span>
+ <span class="post__date">פברואר 2020</span>
+ <span class="post__read">· 2 דק׳ קריאה</span>
+ </div>
+ <h2>למה סירבתי שנים לעשות תקשורים אישיים</h2>
+ <p class="post__sum">
+ חששתי שתקשור אישי מרחיק אדם מעצמו ויוצר תלות. מה שינה את דעתי,
+ ומה הגבול שאני עדיין שומרת עליו.
+ </p>
+ <span class="post__more"><span>לקרוא</span></span>
+ </summary>
+ <div class="post__body">
+ <p>
+ בתחילת דרכי כמתקשרת התנגדתי לקיים סשנים אישיים. הייתה לי תפיסה שתקשור אישי
+ מרחיק אדם מעצמו ויוצר תלות במי שמעביר אותו.
+ </p>
+ <p>
+ בתקופה הזו תקשרתי בעיקר עבור עצמי, ולעיתים הסכמתי לשאלות בודדות עבור חברים,
+ בני משפחה או מטופלים. ושמתי לב שהמידע שהגיע נתן בהירות, כלים ודרכי פעולה , 
+ אנשים יצאו מחוזקים, עם ביטחון בעצמם. לא תלויים.
+ </p>
+ <p>
+ ככל שהזמן עבר צברתי ניסיון, דייקתי, והעמקתי את ההיכרות עם המקומות שמהם מגיע
+ המידע, עד שידעתי שמה שאני מביאה לא נלקח לאזורי תלות או פסיביות.
+ </p>
+ <p>
+ אז הסכמתי. הפעם הראשונה הייתה ביריד אזורי לקהילה מקומית: תוך פחות משבועיים
+ העברתי עשרות סשנים. התגובות היו יוצאות מן הכלל, אפשר היה לראות בבירור את
+ ההקלה ואת הביטחון שאיתם אנשים יצאו.
+ </p>
+ <p>
+ <strong style="font-weight:600">והגבול נשאר.</strong> תקשור טוב מרחיב את האפשרויות
+ שעומדות בפני האדם, מציע זוויות התבוננות, ומכוון אותו למצוא את התשובות בתוך עצמו , 
+ לא להחליף אותן בתשובות שלי.
+ </p>
+ <div class="post__cta">
+ <span>רוצה לשמוע עוד על סשן תקשור?</span>
+ <a class="btn btn--gold" href="contact.html">לשיחת היכרות</a>
+ </div>
+ </div>
+ </details>
+
+ <!-- ─── 6 ─── -->
+ <details class="post" data-topic="הדרך שלי">
+ <summary>
+ <div class="post__meta">
+ <span class="post__topic">הדרך שלי</span>
+ <span class="post__date">פברואר 2020</span>
+ <span class="post__read">· 3 דק׳ קריאה</span>
+ </div>
+ <h2>הייתה לי התנגדות גדולה לעולם הרוח</h2>
+ <p class="post__sum">
+ מגמת אלקטרוניקה, 14 שנה בהייטק, והתנגדות אמיתית לכל מה שלא נמדד.
+ מה שקרה ב 2011 שינה את זה.
+ </p>
+ <span class="post__more"><span>לקרוא</span></span>
+ </summary>
+ <div class="post__body">
+ <p>
+ לא תמיד התעסקתי בעולם הרוח. הייתה לי התנגדות גדולה לזה.
+ </p>
+ <p>
+ הכרתי לא מעט אנשים רוחניים. הם החזיקו והאמינו בתיאוריות מדהימות על החיים ועל
+ היקום, אבל בפועל התנהלו לפי ערכים שלא תאמו את מה שדיברו עליו, וחוו קשיים רבים.
+ נראה היה לי שהם לא באמת חיים את מה שהם מאמינים בו.
+ </p>
+ <p>
+ <strong style="font-weight:600">הפער הזה בין הדיבור להתנהלות יצר אצלי התנגדות והרחיק אותי.</strong>
+ הייתי צריכה לדעת שאפשר ליישם את התיאוריות האלה בחיים שלי, אחרת הן נשארות
+ תיאוריות, מדהימות ככל שיהיו. הייתי צריכה את החיבור לאדמה.
+ </p>
+
+ <h3>מאיפה הגעתי</h3>
+ <p>
+ מגיל צעיר נמשכתי למקצועות הריאליים. בתיכון למדתי במגמת חשמל ואלקטרוניקה,
+ עשיתי עתודה, ובצבא כבר שירתי בתפקיד מקצועי בתחום. השתחררתי ישר אל תוך עולם
+ ההייטק, ושם ביליתי 14 שנים נפלאות מחיי.
+ </p>
+
+ <h3>ואז 2011</h3>
+ <p>
+ בשנת 2011 התעוררתי לידיעה שרוחניות יכולה להיות מחוברת ליומיום. שאפשר לממש את
+ כל אותן ״תיאוריות ורודות״ בפועל, לחיות חיי סיפוק ורווחה, להרגיש בנוח פשוט
+ להיות מי שאני, ולהיות שלמה עם עצמי.
+ </p>
+ <p>
+ זה היה הרגע שבו יכולתי להתחיל לחבר בין שני העולמות האלה לעולם אחד שלם,
+ שבו הרוח והיומיום מתמזגים. וזה העולם שבו אני חיה היום.
+ </p>
+ <div class="post__cta">
+ <span>עוד על הדרך שלי</span>
+ <a class="btn btn--line" href="index.html#anna">אודות אנה ←</a>
+ </div>
+ </div>
+ </details>
+
+ <p class="empty" data-on="false">אין כתבות בנושא הזה כרגע.</p>
+ </div>
+ </div>
+</section>
+
+<!-- ═══════════ סגירה ═══════════ -->
+<section class="sect bclose">
+ <div class="wrap read">
+ <h2 class="rev">משהו כאן נגע?</h2>
+ <p class="rev" data-d="1">
+ שיחת היכרות של עשרים דקות, ללא עלות ובלי התחייבות.
+ מספרים מה מביא אתכם, ואני אומרת בכנות אם אני האדם הנכון.
+ </p>
+ <div class="btn-row btn-row--c rev" data-d="2">
+ <a class="btn btn--gold" href="https://wa.me/972544421454">לשיחת היכרות בוואטסאפ</a>
+ <a class="btn btn--line-d" href="contact.html">להשארת פרטים</a>
+ </div>
+ </div>
+</section>
+
+</main>
+
+<footer class="foot">
+ <div class="wrap">
+ <div class="foot__grid">
+ <div>
+ <div class="foot__logo"><img src="images/logo-light.png" alt="Ana Clinic" width="130" height="40"></div>
+ <p style="font-size:15.5px; color:var(--pale-2); line-height:1.65; max-width:30ch">
+ קליניקה לטיפול הוליסטי, ליווי מעמיק ביצירת מציאות חדשה.
+ </p>
+ <p style="font-family:var(--serif); font-size:18px; color:var(--gold-hi); margin-top:.7em">נוכחות, ריפוי, אהבה.</p>
+ </div>
+ <div>
+ <h3>בקליניקה</h3>
+ <ul>
+ <li><a href="index.html#services">ליווי מעמיק</a></li>
+ <li><a href="index.html#services">חרדות וחסמים רגשיים</a></li>
+ <li><a href="index.html#services">תקשור והתקשרות</a></li>
+ <li><a href="index.html#services">פתיחה בקלפים והכוונה</a></li>
+ </ul>
+ </div>
+ <div>
+ <h3>עוד</h3>
+ <ul>
+ <li><a href="index.html#anna">אודות אנה</a></li>
+ <li><a href="damanhur.html">המסע לדמנהור</a></li>
+ <li><a href="blog.html">כתבות</a></li>
+ <li><a href="contact.html">יצירת קשר</a></li>
+ </ul>
+ </div>
+ </div>
+ <div class="foot__legal">
+ <span>העבודה בקליניקה אינה מחליפה טיפול רפואי או נפשי</span>
+ <span>© אנה גורן</span>
+ <a href="tel:0544421454">054 עד 4421454</a>
+ </div>
+ </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+<script>
+/* סינון לפי נושא */
+(function () {
+  'use strict';
+  var btns  = document.querySelectorAll('.filters button');
+  var posts = document.querySelectorAll('.post');
+  var empty = document.querySelector('.empty');
+  if (!btns.length) return;
+
+  function apply(f) {
+    var shown = 0;
+    posts.forEach(function (p) {
+      var ok = (f === 'all' || p.getAttribute('data-topic') === f);
+      p.hidden = !ok;
+      if (!ok) p.open = false;
+      if (ok) shown++;
+    });
+    if (empty) empty.setAttribute('data-on', shown ? 'false' : 'true');
+  }
+
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      btns.forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+      apply(b.getAttribute('data-f'));
+    });
+  });
+}());
+</script>
+</body>
+</html>

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>לדבר איתי · Ana Clinic, אנה גורן</title>
+<meta name="description" content="שיחת היכרות של 20 דקות, ללא עלות ובלי התחייבות. וואטסאפ, טלפון או השארת פרטים. קליניקה בקיבוץ החותרים וגם מרחוק.">
+<meta property="og:title" content="לדבר איתי · אנה גורן">
+<meta property="og:description" content="שיחת היכרות של 20 דקות, ללא עלות ובלי התחייבות.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;600&family=Frank+Ruhl+Libre:wght@300;500&family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<style>
+/* ==========================================================================
+   יצירת קשר — הרעיון: לא טופס. בורר.
+   בוחרים מה מביא אתכם, ומקבלים הודעת וואטסאפ מוכנה. אפס חיכוך.
+   ========================================================================== */
+
+.chero{
+  position:relative; overflow:hidden;
+  background:
+    radial-gradient(60% 46% at 78% 4%, rgba(242,200,121,.42), transparent 68%),
+    radial-gradient(46% 40% at 8% 96%, rgba(184,92,56,.12), transparent 70%),
+    linear-gradient(180deg, #FDF8EC 0%, var(--cream) 100%);
+  padding-block:clamp(30px,4.5vw,56px) clamp(26px,4vw,44px);
+}
+.chero__top{ text-align:center; max-width:620px; margin-inline:auto }
+.chero h1{
+  font-family:var(--serif); font-weight:500;
+  font-size:clamp(31px,7vw,52px); line-height:1.14; color:var(--night);
+  margin-block:.4em .2em;
+}
+.chero h1 span{
+  background:linear-gradient(95deg, var(--terra) 15%, var(--gold-deep) 85%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.chero__alt{ text-align:center; margin-top:1.4em; font-size:15.5px; color:var(--ink-2) }
+
+/* ── השיחה ── */
+.convo{
+  max-width:480px; margin:1.8em auto 0;
+  background:linear-gradient(180deg, #EDE3D4, #E7DCC9);
+  border-radius:22px; padding:16px 16px 18px;
+  box-shadow:var(--shadow); border:1px solid rgba(36,31,24,.07);
+}
+.convo__head{
+  display:flex; align-items:center; gap:11px;
+  padding-bottom:13px; margin-bottom:14px;
+  border-bottom:1px solid rgba(36,31,24,.09);
+}
+.convo__head img{ width:44px; height:44px; border-radius:50%; object-fit:cover; object-position:46% 26% }
+.convo__head b{ display:block; font-size:16px; font-weight:600; color:var(--ink) }
+.convo__head span{ font-size:13px; color:var(--ink-2) }
+
+.convo__typing{
+  display:inline-flex; gap:5px; align-items:center;
+  background:#F6EEDE; border-radius:16px 16px 16px 4px;
+  padding:14px 18px; box-shadow:0 1px 2px rgba(36,31,24,.11);
+}
+.convo__typing i{
+  width:8px; height:8px; border-radius:50%; background:var(--ink-3);
+}
+@media (prefers-reduced-motion: no-preference){
+  .convo__typing i{ animation:tDot 1.2s ease-in-out infinite }
+  .convo__typing i:nth-child(2){ animation-delay:.18s }
+  .convo__typing i:nth-child(3){ animation-delay:.36s }
+}
+@keyframes tDot{ 0%,60%,100%{ transform:translateY(0); opacity:.5 } 30%{ transform:translateY(-5px); opacity:1 } }
+
+.convo__msg{
+  position:relative; background:#F6EEDE;
+  border-radius:16px 16px 16px 4px; padding:13px 16px 24px;
+  box-shadow:0 1px 2px rgba(36,31,24,.11); max-width:94%;
+}
+.convo__msg p{ font-size:17.5px; line-height:1.55; color:var(--ink) }
+.convo__time{ position:absolute; inset-block-end:7px; inset-inline-start:13px; font-size:11.5px; color:var(--ink-3) }
+
+.convo__replies{ display:flex; flex-direction:column; gap:9px; margin-top:16px }
+.convo__chip{
+  display:flex; align-items:center; justify-content:center;
+  min-height:52px; padding:13px 18px;
+  border-radius:980px; border:1.5px solid rgba(184,92,56,.4);
+  background:rgba(255,253,248,.85);
+  font-size:16.5px; font-weight:600; color:var(--ink);
+  transition:background var(--d-base) var(--e-out), border-color var(--d-base) var(--e-out),
+             transform var(--d-press) var(--e-out);
+}
+.convo__chip:hover{ background:#fff; border-color:var(--gold); transform:translateY(-2px) }
+.convo__chip:active{ transform:translateY(1px) }
+.convo__go{ width:100%; margin-top:12px }
+
+/* טיימליין הכניסה — מוסתר עד שה-JS חושף. בלי JS הכול גלוי */
+.js .convo[data-play] .convo__msg,
+.js .convo[data-play] .convo__replies,
+.js .convo[data-play] .convo__go{ opacity:0; transform:translateY(14px) }
+.js .convo .convo__msg,
+.js .convo .convo__replies,
+.js .convo .convo__go{ transition:opacity 420ms var(--e-reveal), transform 460ms cubic-bezier(.2,1.05,.35,1) }
+.js .convo.s1 .convo__typing{ display:none }
+.js .convo.s1 .convo__msg{ opacity:1; transform:none }
+.js .convo.s2 .convo__replies{ opacity:1; transform:none }
+.js .convo.s2 .convo__go{ opacity:1; transform:none; transition-delay:120ms }
+.js .convo:not([data-play]) .convo__typing{ display:none }
+
+/* ---------------------------------------------- הבורר · הלב של העמוד -- */
+.picker{ background:var(--cream-2) }
+.picker__card{
+  max-width:760px; margin-inline:auto;
+  background:var(--white); border-radius:22px;
+  padding:clamp(22px,4.2vw,38px);
+  box-shadow:var(--shadow); border-top:5px solid var(--gold);
+}
+.picker__step{
+  display:flex; align-items:center; gap:10px; margin-bottom:1em;
+}
+.picker__step i{
+  flex-shrink:0; font-style:normal; display:grid; place-items:center;
+  width:30px; height:30px; border-radius:50%;
+  background:linear-gradient(180deg, var(--gold-hi), var(--gold));
+  font-family:var(--serif); font-weight:500; font-size:15px; color:#2A1F0C;
+}
+.picker__step b{ font-family:var(--serif); font-weight:500; font-size:19.5px; color:var(--night) }
+
+.opts{ display:grid; gap:10px }
+@media (min-width:600px){ .opts{ grid-template-columns:1fr 1fr } }
+.opt{
+  display:flex; align-items:center; gap:12px; text-align:start;
+  padding:15px 16px; border-radius:14px; min-height:60px;
+  background:var(--cream); border:1.5px solid transparent;
+  font-size:16.5px; line-height:1.4; color:var(--ink);
+  transition:border-color var(--d-base) var(--e-out), background var(--d-base) var(--e-out),
+             transform var(--d-press) var(--e-out);
+  width:100%;
+}
+.opt:hover{ background:#fff; border-color:rgba(184,92,56,.3) }
+.opt[aria-pressed="true"]{
+  background:linear-gradient(160deg, rgba(217,168,78,.18), rgba(184,92,56,.09));
+  border-color:var(--gold);
+}
+.opt__dot{
+  flex-shrink:0; width:22px; height:22px; border-radius:50%;
+  border:2px solid var(--ink-3); display:grid; place-items:center;
+  transition:border-color var(--d-base) var(--e-out), background var(--d-base) var(--e-out);
+}
+.opt[aria-pressed="true"] .opt__dot{ background:var(--gold); border-color:var(--gold) }
+.opt__dot::after{
+  content:''; width:8px; height:8px; border-radius:50%; background:#fff;
+  opacity:0; transition:opacity var(--d-base) var(--e-out);
+}
+.opt[aria-pressed="true"] .opt__dot::after{ opacity:1 }
+
+.picker__note{
+  margin-top:1.3em; font-size:15px; color:var(--ink-2); line-height:1.55;
+}
+
+/* תצוגה מקדימה של ההודעה */
+.preview{
+  margin-top:1.6em; padding-top:1.5em; border-top:1px solid var(--hair-c);
+}
+.preview__label{
+  display:block; font-size:12.5px; font-weight:600; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--terra); margin-bottom:.8em;
+}
+.bubble{
+  position:relative; background:#F6EEDE; border-radius:14px 14px 4px 14px;
+  padding:14px 16px 22px; box-shadow:0 1px 2px rgba(36,31,24,.11);
+  font-size:17px; line-height:1.55; color:var(--ink);
+  max-width:92%; margin-inline-start:auto;
+}
+.bubble__t{
+  position:absolute; inset-block-end:6px; inset-inline-start:12px;
+  font-size:11px; color:var(--ink-3);
+}
+.preview__go{ margin-top:1.3em }
+.preview__go .btn{ width:100% }
+@media (min-width:600px){ .preview__go .btn{ width:auto } }
+
+/* ------------------------------------------------------- דרכי קשר ----- */
+.ways{ display:grid; gap:12px; margin-top:2.2em; max-width:760px; margin-inline:auto }
+@media (min-width:640px){ .ways{ grid-template-columns:repeat(3,1fr) } }
+.way{
+  display:flex; flex-direction:column; align-items:center; text-align:center; gap:9px;
+  padding:24px 18px; border-radius:18px; min-height:130px; justify-content:center;
+  background:var(--white); box-shadow:var(--shadow);
+  border-top:4px solid transparent;
+  transition:transform var(--d-base) var(--e-out);
+}
+.way:hover{ transform:translateY(-4px) }
+.way:nth-child(1){ border-top-color:var(--v-teal) }
+.way:nth-child(2){ border-top-color:var(--gold) }
+.way:nth-child(3){ border-top-color:var(--v-rose) }
+.way__ico{
+  width:48px; height:48px; border-radius:50%; display:grid; place-items:center;
+  background:var(--cream); color:var(--terra);
+}
+.way__ico svg{ width:23px; height:23px; fill:currentColor }
+.way b{ font-size:17px; font-weight:600; color:var(--night) }
+.way span{ font-size:14.5px; color:var(--ink-2); line-height:1.45 }
+.way .mono{ font-size:15px; color:var(--terra); letter-spacing:.02em }
+
+/* ------------------------------------------------------- מה קורה ------ */
+.next{ background:var(--cream) }
+.next__steps{ display:grid; gap:16px; margin-top:2.1em }
+@media (min-width:780px){ .next__steps{ grid-template-columns:repeat(3,1fr) } }
+.nstep{
+  background:var(--white); border-radius:18px; padding:26px 24px;
+  box-shadow:var(--shadow); position:relative; overflow:hidden;
+}
+.nstep::before{ content:''; position:absolute; inset-inline:0; inset-block-start:0; height:4px }
+.nstep:nth-child(1)::before{ background:linear-gradient(90deg, var(--gold), var(--gold-hi)) }
+.nstep:nth-child(2)::before{ background:linear-gradient(90deg, var(--terra), var(--v-rose)) }
+.nstep:nth-child(3)::before{ background:linear-gradient(90deg, var(--v-teal), var(--indigo)) }
+.nstep i{
+  display:inline-grid; place-items:center; font-style:normal;
+  width:40px; height:40px; border-radius:50%; margin-bottom:.9em;
+  background:linear-gradient(180deg, var(--gold-hi), var(--gold));
+  font-family:var(--serif); font-weight:500; font-size:17px; color:#2A1F0C;
+}
+.nstep b{ display:block; font-family:var(--serif); font-weight:500; font-size:20px; color:var(--night); margin-bottom:.4em }
+.nstep p{ font-size:16px; line-height:1.62; color:var(--ink-2) }
+
+/* ------------------------------------------------------- טופס --------- */
+.formwrap{ background:var(--cream-2) }
+.form{
+  max-width:620px; margin:2em auto 0;
+  background:var(--white); border-radius:22px; box-shadow:var(--shadow);
+  padding:clamp(22px,4.2vw,38px);
+}
+.field{ margin-bottom:15px }
+.field label{ display:block; font-size:15px; font-weight:600; margin-bottom:7px; color:var(--night) }
+.field label em{ font-style:normal; font-weight:300; color:var(--ink-3); font-size:14px }
+.field input, .field textarea, .field select{
+  width:100%; min-height:52px; padding:13px 16px;
+  border:1.5px solid var(--hair-c); border-radius:13px;
+  background:var(--cream); font:inherit; font-size:17px; color:var(--ink);
+  transition:border-color var(--d-base) var(--e-out), background var(--d-base) var(--e-out);
+}
+.field textarea{ min-height:110px; resize:vertical; line-height:1.55 }
+.field input:focus, .field textarea:focus, .field select:focus{
+  outline:none; border-color:var(--gold); background:#fff;
+}
+.form__note{ font-size:14.5px; color:var(--ink-2); margin-top:14px; line-height:1.55 }
+.form .btn{ width:100%; margin-top:6px }
+
+/* ------------------------------------------------------- מיקום -------- */
+.place{
+  max-width:760px; margin:2em auto 0; padding:24px 26px; border-radius:18px;
+  background:linear-gradient(160deg, rgba(217,168,78,.13), rgba(47,143,140,.07));
+  border:1px solid var(--hair-c);
+}
+.place b{ display:block; font-family:var(--serif); font-weight:500; font-size:20px; color:var(--night); margin-bottom:.4em }
+.place p{ font-size:16.5px; line-height:1.65; color:var(--ink-2) }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ ניווט ═══════════ -->
+<header class="nav">
+ <div class="wrap nav__in">
+ <a class="nav__logo" href="index.html" aria-label="Ana Clinic — לדף הבית">
+ <img src="images/logo.png" alt="Ana Clinic · אנה גורן" width="120" height="36">
+ </a>
+ <nav aria-label="ניווט ראשי">
+ <ul class="nav__list">
+ <li><a href="index.html">בית</a></li>
+ <li><a href="index.html#services">הטיפולים</a></li>
+ <li><a href="index.html#method">השיטה</a></li>
+ <li><a href="index.html#anna">אודות אנה</a></li>
+ <li><a href="damanhur.html">המסע לדמנהור</a></li>
+ <li><a href="blog.html">כתבות</a></li>
+ </ul>
+ </nav>
+ <div class="nav__cta"><a class="btn btn--gold" href="https://wa.me/972544421454">וואטסאפ</a></div>
+ <button class="nav__burger" type="button" aria-expanded="false" aria-label="פתיחת תפריט"><span></span></button>
+ </div>
+</header>
+
+<div class="sheet" data-open="false" role="dialog" aria-label="תפריט">
+ <div class="sheet__top">
+ <img src="images/logo-light.png" alt="Ana Clinic" width="120" height="36">
+ <button class="sheet__x" type="button" aria-label="סגירת תפריט">×</button>
+ </div>
+ <ul class="sheet__list">
+ <li><a href="index.html">בית</a></li>
+ <li><a href="index.html#identify">מה מעורר הזדהות</a></li>
+ <li><a href="index.html#method">השיטה</a></li>
+ <li><a href="index.html#services">הטיפולים</a></li>
+ <li><a href="index.html#anna">אודות אנה</a></li>
+ <li><a href="damanhur.html">המסע לדמנהור</a></li>
+ <li><a href="blog.html">כתבות</a></li>
+ <li><a href="contact.html">יצירת קשר</a></li>
+ </ul>
+ <div class="sheet__foot"><a class="btn btn--gold" href="https://wa.me/972544421454" style="width:100%">וואטסאפ</a></div>
+</div>
+
+<main>
+
+<!-- ═══════════ הירו ═══════════ -->
+<section class="chero">
+ <div class="wrap">
+  <div class="chero__top rev">
+   <span class="eyebrow">שיחת היכרות · ללא עלות</span>
+   <h1>ההודעה הראשונה<br><span>כבר מחכה לך.</span></h1>
+  </div>
+
+  <!-- השיחה — אנה מקלידה, ההודעה מופיעה, נשאר רק להשיב -->
+  <div class="convo rev" data-d="1" id="convo">
+   <div class="convo__head">
+    <img src="images/anna-square.jpg" alt="" width="44" height="44">
+    <div><b>אנה גורן</b><span>בדרך כלל עונה תוך כמה שעות</span></div>
+   </div>
+
+   <div class="convo__typing" id="cvTyping"><i></i><i></i><i></i></div>
+
+   <div class="convo__msg" id="cvMsg">
+    <p>היי 🙂 אני אנה. ספרו לי במשפט אחד מה מביא אתכם, ואני אחזור אליכם עוד היום או מחר.</p>
+    <span class="convo__time">עכשיו</span>
+   </div>
+
+   <div class="convo__replies" id="cvReplies">
+    <a class="convo__chip" href="https://wa.me/972544421454?text=%D7%94%D7%99%D7%99%20%D7%90%D7%A0%D7%94%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%99%D7%97%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA">אשמח לשיחת היכרות 👋</a>
+    <a class="convo__chip" href="https://wa.me/972544421454?text=%D7%94%D7%99%D7%99%20%D7%90%D7%A0%D7%94%2C%20%D7%99%D7%A9%20%D7%9C%D7%99%20%D7%A9%D7%90%D7%9C%D7%94">יש לי שאלה</a>
+    <a class="convo__chip" href="https://wa.me/972544421454?text=%D7%94%D7%99%D7%99%20%D7%90%D7%A0%D7%94%2C%20%D7%9E%D7%A2%D7%A0%D7%99%D7%99%D7%9F%20%D7%90%D7%95%D7%AA%D7%99%20%D7%94%D7%9E%D7%A1%D7%A2%20%D7%9C%D7%93%D7%9E%D7%A0%D7%94%D7%95%D7%A8">מעניין אותי המסע לדמנהור ✨</a>
+   </div>
+
+   <a class="btn btn--gold convo__go" href="https://wa.me/972544421454">להשיב לאנה בוואטסאפ</a>
+  </div>
+
+  <p class="chero__alt rev" data-d="2">רוצים לדייק? <a class="txt-link" href="#picker">בחרו נושא ואופן מפגש למטה</a></p>
+ </div>
+</section>
+
+<!-- ═══════════ הבורר ═══════════ -->
+<section class="sect picker" id="picker">
+ <div class="wrap">
+ <div class="picker__card rev">
+
+ <div class="picker__step"><i>1</i><b>מה מביא אתכם?</b></div>
+ <div class="opts" role="group" aria-label="בחירת נושא">
+ <button class="opt" type="button" aria-pressed="false" data-topic="ליווי מעמיק">
+ <span class="opt__dot"></span> משהו חוזר ואני רוצה שישתנה
+ </button>
+ <button class="opt" type="button" aria-pressed="false" data-topic="חרדות וחסמים">
+ <span class="opt__dot"></span> חרדות, פחדים או חסמים
+ </button>
+ <button class="opt" type="button" aria-pressed="false" data-topic="תקשור">
+ <span class="opt__dot"></span> תקשור והתקשרות
+ </button>
+ <button class="opt" type="button" aria-pressed="false" data-topic="קלפים והכוונה">
+ <span class="opt__dot"></span> פתיחה בקלפים והכוונה
+ </button>
+ <button class="opt" type="button" aria-pressed="false" data-topic="המסע לדמנהור">
+ <span class="opt__dot"></span> המסע לדמנהור
+ </button>
+ <button class="opt" type="button" aria-pressed="false" data-topic="עוד לא בטוחה">
+ <span class="opt__dot"></span> עוד לא סגור לי, רוצה לשאול
+ </button>
+ </div>
+
+ <div class="picker__step" style="margin-top:1.8em"><i>2</i><b>איך נוח לכם?</b></div>
+ <div class="opts" role="group" aria-label="בחירת אופן פגישה">
+ <button class="opt" type="button" aria-pressed="false" data-mode="פרונטלי בקיבוץ החותרים">
+ <span class="opt__dot"></span> פרונטלי, בקליניקה
+ </button>
+ <button class="opt" type="button" aria-pressed="false" data-mode="מרחוק">
+ <span class="opt__dot"></span> מרחוק
+ </button>
+ </div>
+
+ <p class="picker__note">
+ אין חובה לבחור. אפשר פשוט ללחוץ על הכפתור למטה ולכתוב מה שרוצים.
+ </p>
+
+ <div class="preview">
+ <span class="preview__label">ההודעה שתישלח</span>
+ <div class="bubble">
+ <span id="msg">היי אנה, הגעתי מהאתר ורציתי לשאול משהו.</span>
+ <span class="bubble__t">עכשיו ✓✓</span>
+ </div>
+ <div class="preview__go">
+ <a class="btn btn--gold" id="go" href="https://wa.me/972544421454">לפתוח בוואטסאפ ←</a>
+ </div>
+ </div>
+
+ </div>
+ </div>
+</section>
+
+<!-- ═══════════ דרכי קשר ═══════════ -->
+<section class="sect sect--tight">
+ <div class="wrap">
+ <div class="read center rev">
+ <span class="eyebrow">או פשוט</span>
+ <h2 class="h-sect" style="margin-top:.5em; color:var(--night)">בדרך שנוחה לכם</h2>
+ </div>
+
+ <div class="ways rev" data-d="1">
+ <a class="way" href="https://wa.me/972544421454">
+ <span class="way__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2A9.7 9.7 0 002.3 11.9c0 1.7.45 3.35 1.3 4.8L2.2 21.8l5.25-1.35a9.7 9.7 0 0014.25-8.55A9.7 9.7 0 0012 2.2zm0 1.8a7.9 7.9 0 110 15.8 7.9 7.9 0 01-4.1-1.15l-.3-.18-3.05.8.8-3-.18-.3A7.9 7.9 0 0112 4zm-3.6 3.7c-.18 0-.47.07-.72.34-.25.27-.95.93-.95 2.25 0 1.33.96 2.6 1.1 2.78.13.18 1.87 2.98 4.6 4.06 2.27.9 2.73.72 3.22.67.5-.04 1.6-.65 1.83-1.29.22-.63.22-1.17.16-1.28-.07-.11-.25-.18-.53-.32-.27-.13-1.6-.79-1.85-.88-.25-.09-.43-.13-.6.14-.19.27-.7.9-.86 1.08-.16.18-.32.2-.6.07-.27-.14-1.16-.43-2.2-1.36-.82-.73-1.37-1.63-1.53-1.9-.16-.28-.02-.43.12-.56.13-.14.27-.32.4-.48.14-.16.19-.27.28-.45.09-.18.04-.34-.02-.47-.07-.14-.6-1.47-.83-2-.2-.5-.4-.5-.56-.5z"/></svg></span>
+ <b>וואטסאפ</b>
+ <span>הכי מהיר. בדרך כלל עונה תוך כמה שעות</span>
+ </a>
+
+ <a class="way" href="tel:0544421454">
+ <span class="way__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg></span>
+ <b>טלפון</b>
+ <span class="mono">054 עד 4421454</span>
+ </a>
+
+ <a class="way" href="mailto:annagoren55@gmail.com">
+ <span class="way__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V7c0-1.1.9-2 2-2zm8 7L4.5 7h15L12 12zm0 2.2L4 8.5V17h16V8.5l-8 5.7z"/></svg></span>
+ <b>מייל</b>
+ <span>annagoren55@gmail.com</span>
+ </a>
+ </div>
+ </div>
+</section>
+
+<!-- ═══════════ מה קורה עכשיו ═══════════ -->
+<section class="sect next">
+ <div class="wrap">
+ <div class="read center rev">
+ <span class="eyebrow">בלי הפתעות</span>
+ <h2 class="h-sect" style="margin-top:.5em; color:var(--night)">מה קורה אחרי שפונים</h2>
+ </div>
+
+ <div class="next__steps rev" data-d="1">
+ <div class="nstep">
+ <i>1</i>
+ <b>אני חוזרת אליכם</b>
+ <p>בדרך כלל תוך כמה שעות, ולכל היותר ביום העסקים הבא. אם דחוף, לכתוב את זה בהודעה.</p>
+ </div>
+ <div class="nstep">
+ <i>2</i>
+ <b>שיחה של 20 דקות</b>
+ <p>מתי שנוח לכם. מספרים מה מביא אתכם, אני שואלת כמה שאלות. בלי עלות ובלי התחייבות.</p>
+ </div>
+ <div class="nstep">
+ <i>3</i>
+ <b>מחליטים יחד</b>
+ <p>אם זה מתאים, קובעים מפגש ראשון. אם לא, אפנה אתכם למי שכן. גם זו תשובה טובה.</p>
+ </div>
+ </div>
+
+ <div class="place rev" data-d="2">
+ <b>איפה זה קורה</b>
+ <p>
+ הקליניקה נמצאת ב<strong style="font-weight:600">קיבוץ החותרים</strong>, והכתובת המדויקת
+ נשלחת בתיאום הפגישה. חלק מהעבודה מתקיימת גם מרחוק ועובדת מצוין, אם המרחק הוא
+ השיקול היחיד, זו לא סיבה לוותר.
+ </p>
+ </div>
+ </div>
+</section>
+
+<!-- ═══════════ טופס ═══════════ -->
+<section class="sect formwrap">
+ <div class="wrap">
+ <div class="read center rev">
+ <span class="eyebrow">נוח יותר לכתוב?</span>
+ <h2 class="h-sect" style="margin-top:.5em; color:var(--night)">השאירי פרטים</h2>
+ <p style="margin-top:.9em; color:var(--ink-2)">ואחזור אליכם.</p>
+ </div>
+
+ <!--
+      ⬜ הטופס סטטי. צריך יעד שליחה לפני עלייה לאוויר.
+      אופציות: Formspree / Web3Forms (חינם, 5 דקות), חיבור לוורדפרס הקיים, או Google Form.
+      עד אז — הכפתור פותח וואטסאפ עם הפרטים.
+    -->
+ <form class="form rev" data-d="1" id="leadForm">
+ <div class="field">
+ <label for="f-name">איך קוראים לכם?</label>
+ <input id="f-name" name="name" type="text" autocomplete="name" required>
+ </div>
+ <div class="field">
+ <label for="f-phone">טלפון</label>
+ <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required>
+ </div>
+ <div class="field">
+ <label for="f-msg">מה מביא אתכם? <em>, אפשר בשורה אחת</em></label>
+ <textarea id="f-msg" name="message" rows="4"></textarea>
+ </div>
+ <button class="btn btn--gold" type="submit">שליחה בוואטסאפ</button>
+ <p class="form__note">
+ הלחיצה פותחת וואטסאפ עם הפרטים שמילאתם, ההודעה נשלחת אליי משם, ורק כשאתם שולחים. אני לא שולחת דיוור ולא מעבירה פרטים לאף אחד.
+ </p>
+ </form>
+ </div>
+</section>
+
+</main>
+
+<footer class="foot">
+ <div class="wrap">
+ <div class="foot__grid">
+ <div>
+ <div class="foot__logo"><img src="images/logo-light.png" alt="Ana Clinic" width="130" height="40"></div>
+ <p style="font-size:15.5px; color:var(--pale-2); line-height:1.65; max-width:30ch">
+ קליניקה לטיפול הוליסטי, ליווי מעמיק ביצירת מציאות חדשה.
+ </p>
+ <p style="font-family:var(--serif); font-size:18px; color:var(--gold-hi); margin-top:.7em">נוכחות, ריפוי, אהבה.</p>
+ <div class="social" style="margin-top:18px">
+ <a href="#" aria-label="אינסטגרם" title="להשלים handle">
+ <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.23 1 .5 1.4.95.45.44.72.83.95 1.4.17.44.37 1.05.42 2.25.06 1.28.07 1.68.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2-.23.6-.5 1-.95 1.4-.44.45-.83.72-1.4.95-.44.17-1.05.37-2.25.42-1.28.06-1.68.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42-.6-.23-1-.5-1.4-.95-.45-.44-.72-.83-.95-1.4-.17-.44-.37-1.05-.42-2.25C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.23-.6.5-1 .95-1.4.44-.45.83-.72 1.4-.95.44-.17 1.05-.37 2.25-.42C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.5 0-4.72.07-.92.04-1.4.19-1.72.31-.44.17-.72.37-1.02.67-.3.3-.5.58-.67 1.02-.12.32-.27.8-.31 1.72C3.5 8.5 3.5 8.85 3.5 12s0 3.5.07 4.72c.4.92.19 1.4.31 1.72.17.44.37.72.67 1.02.3.3.58.5 1.02.67.32.12.8.27 1.72.31 1.22.06 1.57.07 4.72.07s3.5 0 4.72-.07c.92-.04 1.4-.19 1.72-.31.44-.17.72-.37 1.02-.67.3-.3.5-.58.67-1.02.12-.32.27-.8.31-1.72.06-1.22.07-1.57.07-4.72s0-3.5-.07-4.72c-.04-.92-.19-1.4-.31-1.72a2.7 2.7 0 00-.67-1.02 2.7 2.7 0 00-1.02-.67c-.32-.12-.8-.27-1.72-.31C15.5 4 15.15 4 12 4zm0 3.1a4.9 4.9 0 110 9.8 4.9 4.9 0 010-9.8zm0 1.8a3.1 3.1 0 100 6.2 3.1 3.1 0 000-6.2zm5.1-2.1a1.15 1.15 0 110 2.3 1.15 1.15 0 010-2.3z"/></svg>
+ </a>
+ <a href="https://www.facebook.com/PASHUT.EL.ATZMI/" aria-label="פייסבוק">
+ <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3-.04-1.3-.13-2.45-.13-2.45 0-4.1 1.5-4.1 4.24v2.19H7.4V13h2.25v8z"/></svg>
+ </a>
+ <a href="https://wa.me/972544421454" aria-label="וואטסאפ">
+ <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2A9.7 9.7 0 002.3 11.9c0 1.7.45 3.35 1.3 4.8L2.2 21.8l5.25-1.35a9.7 9.7 0 0014.25-8.55A9.7 9.7 0 0012 2.2zm0 1.8a7.9 7.9 0 110 15.8 7.9 7.9 0 01-4.1-1.15l-.3-.18-3.05.8.8-3-.18-.3A7.9 7.9 0 0112 4zm-3.6 3.7c-.18 0-.47.07-.72.34-.25.27-.95.93-.95 2.25 0 1.33.96 2.6 1.1 2.78.13.18 1.87 2.98 4.6 4.06 2.27.9 2.73.72 3.22.67.5-.04 1.6-.65 1.83-1.29.22-.63.22-1.17.16-1.28-.07-.11-.25-.18-.53-.32-.27-.13-1.6-.79-1.85-.88-.25-.09-.43-.13-.6.14-.19.27-.7.9-.86 1.08-.16.18-.32.2-.6.07-.27-.14-1.16-.43-2.2-1.36-.82-.73-1.37-1.63-1.53-1.9-.16-.28-.02-.43.12-.56.13-.14.27-.32.4-.48.14-.16.19-.27.28-.45.09-.18.04-.34-.02-.47-.07-.14-.6-1.47-.83-2-.2-.5-.4-.5-.56-.5z"/></svg>
+ </a>
+ </div>
+ </div>
+ <div>
+ <h3>בקליניקה</h3>
+ <ul>
+ <li><a href="index.html#services">ליווי מעמיק</a></li>
+ <li><a href="index.html#services">חרדות וחסמים רגשיים</a></li>
+ <li><a href="index.html#services">תקשור והתקשרות</a></li>
+ <li><a href="index.html#services">פתיחה בקלפים והכוונה</a></li>
+ </ul>
+ </div>
+ <div>
+ <h3>עוד</h3>
+ <ul>
+ <li><a href="index.html#anna">אודות אנה</a></li>
+ <li><a href="damanhur.html">המסע לדמנהור</a></li>
+ <li><a href="blog.html">כתבות</a></li>
+ <li><a href="contact.html">יצירת קשר</a></li>
+ </ul>
+ </div>
+ </div>
+ <div class="foot__legal">
+ <span>העבודה בקליניקה אינה מחליפה טיפול רפואי או נפשי</span>
+ <span>© אנה גורן</span>
+ <span>קיבוץ החותרים</span>
+ </div>
+ </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+<script>
+/* הבורר — בונה הודעת וואטסאפ מוכנה מהבחירות */
+(function () {
+  'use strict';
+  var WA = 'https://wa.me/972544421454';
+  var msgEl = document.getElementById('msg');
+  var goEl  = document.getElementById('go');
+  var opts  = document.querySelectorAll('.opt');
+  var state = { topic: null, mode: null };
+
+  function build() {
+    var t = 'היי אנה, הגעתי מהאתר';
+    if (state.topic === 'עוד לא בטוחה') t += ' ורציתי לשאול כמה שאלות';
+    else if (state.topic)               t += ' בנוגע ל' + state.topic;
+    else                                t += ' ורציתי לשאול משהו';
+    if (state.mode) t += '. עדיף לי ' + state.mode;
+    t += '.';
+    return t;
+  }
+
+  function render() {
+    var t = build();
+    msgEl.textContent = t;
+    goEl.href = WA + '?text=' + encodeURIComponent(t);
+  }
+
+  opts.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var key  = b.hasAttribute('data-topic') ? 'topic' : 'mode';
+      var attr = key === 'topic' ? 'data-topic' : 'data-mode';
+      var val  = b.getAttribute(attr);
+      var on   = b.getAttribute('aria-pressed') === 'true';
+
+      document.querySelectorAll('[' + attr + ']').forEach(function (o) {
+        o.setAttribute('aria-pressed', 'false');
+      });
+      if (on) { state[key] = null; }
+      else    { b.setAttribute('aria-pressed', 'true'); state[key] = val; }
+      render();
+    });
+  });
+
+  render();
+
+  /* הטופס — עד שיחובר יעד שליחה, פותח וואטסאפ עם הפרטים */
+  var form = document.getElementById('leadForm');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var n = form.name.value.trim(), p = form.phone.value.trim(), m = form.message.value.trim();
+      var t = 'היי אנה, זו ' + (n || '') + '.' + (m ? ' ' + m : ' הגעתי מהאתר.') + (p ? ' טלפון: ' + p : '');
+      window.open(WA + '?text=' + encodeURIComponent(t), '_blank', 'noopener');
+    });
+  }
+}());
+</script>
+<script>
+/* השיחה: הקלדה 1.2ש → הודעה → תשובות מהירות */
+(function () {
+  var c = document.getElementById('convo');
+  if (!c) return;
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isStatic = /[?&]static=1/.test(location.search);
+  if (reduced || isStatic) { c.classList.add('s1','s2'); return; }
+  c.setAttribute('data-play','');
+  setTimeout(function () { c.classList.add('s1'); }, 1250);
+  setTimeout(function () { c.classList.add('s2'); }, 1750);
+}());
+</script>
+</body>
+</html>
