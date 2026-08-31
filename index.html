@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ana Clinic · אנה גורן, קליניקה לטיפול הוליסטי וליווי מעמיק</title>
-<meta name="description" content="קליניקה לטיפול הוליסטי, ליווי מעמיק ביצירת מציאות חדשה. ליווי מעמיק, טיפול בחרדות וחסמים רגשיים, תקשור והתקשרות, פתיחה בקלפים והכוונה. קיבוץ החותרים ומרחוק.">
+<meta name="description" content="קליניקה לטיפול הוליסטי, ליווי מעמיק ביצירת מציאות חדשה. טיפול בשיטת LTT ותקשור אישי. ליצור שינוי אמיתי בחיים, מבפנים החוצה. קיבוץ החותרים ואפשרות לזום.">
 <meta property="og:title" content="Ana Clinic · אנה גורן">
 <meta property="og:description" content="נוכחות, ריפוי, אהבה.">
 <meta property="og:type" content="website">
@@ -118,6 +118,11 @@
 .breathe__btn[data-phase="in"]{ transform:scale(1.16); box-shadow:0 0 60px -6px rgba(242,200,121,.6) }
 .breathe__btn[data-phase="hold"]{ transform:scale(1.16) }
 .breathe__btn[data-phase="out"]{ transform:scale(1); box-shadow:0 0 20px -8px rgba(242,200,121,.3) }
+@media (prefers-reduced-motion: no-preference){
+  .breathe__btn{ animation:curioPulse 4.5s ease-in-out infinite }
+}
+@keyframes curioPulse{ 0%,100%{ transform:scale(1); box-shadow:0 0 20px -8px rgba(242,200,121,.3) }
+  50%{ transform:scale(1.06); box-shadow:0 0 55px -6px rgba(242,200,121,.55) } }
 .breathe__btn span{
   font-family:var(--serif); font-weight:500; font-size:21px; color:var(--terra);
   pointer-events:none;
@@ -186,11 +191,15 @@
 .idb--2{ background:linear-gradient(150deg,#FBE3EC,#F3C6D8); transform:rotate(1.1deg);  border-radius:32px 32px 12px 32px }
 .idb--3{ background:linear-gradient(150deg,#DFF2F1,#BFE3E1); transform:rotate(-0.8deg); border-radius:12px 32px 32px 32px }
 .idb--4{ background:linear-gradient(150deg,#EAE3F6,#D4C6EC); transform:rotate(1.4deg);  border-radius:32px 12px 32px 32px }
+.idb--6{ background:linear-gradient(150deg,#E3EFDD,#C6E0BE); transform:rotate(.9deg);  border-radius:32px 12px 32px 32px }
+.idb--7{ background:linear-gradient(150deg,#FBEadf,#F0D4C0); transform:rotate(-1.4deg); border-radius:12px 32px 32px 32px }
 .idb--5{ background:linear-gradient(150deg,#FCE9DC,#F5CFB4); transform:rotate(-1.1deg); border-radius:32px 32px 32px 12px }
 @media (prefers-reduced-motion: no-preference){
   .idb{ animation:idbFloat 6s ease-in-out infinite }
   .idb--2{ animation-delay:1.2s } .idb--3{ animation-delay:2.4s }
-  .idb--4{ animation-delay:3.6s } .idb--5{ animation-delay:4.8s }
+  .idb--4{ animation-delay:3.6s } .idb--6{ background:linear-gradient(150deg,#E3EFDD,#C6E0BE); transform:rotate(.9deg);  border-radius:32px 12px 32px 32px }
+.idb--7{ background:linear-gradient(150deg,#FBEadf,#F0D4C0); transform:rotate(-1.4deg); border-radius:12px 32px 32px 32px }
+.idb--5{ animation-delay:4.8s }
 }
 @keyframes idbFloat{ 0%,100%{ translate:0 0 } 50%{ translate:0 -5px } }
 .ident__after{
@@ -612,16 +621,14 @@
  <div class="rev">
  <span class="eyebrow">Ana Clinic · אנה גורן</span>
 
- <h1>קליניקה לטיפול הוליסטי,<br><b>ליווי מעמיק ביצירת מציאות חדשה</b></h1>
+ <h1>קליניקה לטיפול הוליסטי,<br><b>ליצור שינוי אמיתי בחיים, מבפנים החוצה</b></h1>
 
  <p class="hero__mantra">נוכחות, ריפוי, אהבה.</p>
 
  <div class="hero__svc">
- <span>ליווי מעמיק</span>
- <span>טיפול בחרדות וחסמים רגשיים</span>
- <span>תקשור והתקשרות</span>
- <span>פתיחה בקלפים והכוונה</span>
- </div>
+        <span>טיפול בשיטת LTT</span>
+        <span>תקשור אישי</span>
+      </div>
 
  <div class="btn-row hero__cta">
  <a class="btn btn--gold" href="contact.html">לשיחת היכרות</a>
@@ -631,7 +638,7 @@
  <div class="hero__meta">
  <div><b>ללא עלות</b>ובלי התחייבות</div>
  <div><b>קליניקה</b>קיבוץ החותרים</div>
- <div><b>וגם</b>טיפולים מרחוק</div>
+ <div><b>וגם</b>אפשרות לטיפול דרך זום</div>
  </div>
  </div>
 
@@ -644,14 +651,13 @@
 
 <!-- ═══════════════════ רגע לנשום ═══════════════════ -->
 <section class="sect sect--tight breathe">
- <div class="wrap read rev">
- <span class="eyebrow">לפני שממשיכים</span>
- <h2 class="h-sect" style="margin-top:.5em; color:var(--night)">רגע אחד לעצמך</h2>
- <button class="breathe__btn" type="button" data-phase="idle" aria-live="polite">
- <span>לנשום רגע</span>
- </button>
- <p class="breathe__hint">לחצו על העיגול לשלושה סבבי נשימה. ארבע פנימה, שתיים להחזיק, שש החוצה.</p>
- </div>
+  <div class="wrap read rev">
+    <span class="eyebrow">רגע לפני שממשיכים</span>
+    <h2 class="h-sect" style="margin-top:.5em; color:var(--night)">יש משהו שכדאי לבדוק.</h2>
+    <a class="breathe__btn" href="#identify" data-curio>
+      <span>מה הביא אותי לכאן?</span>
+    </a>
+  </div>
 </section>
 
 <!-- ═══════════════════ מה מעורר הזדהות ═══════════════════ -->
@@ -663,18 +669,17 @@
  <div class="wrap">
  <div class="read center rev">
  <span class="eyebrow">נקודת התחלה</span>
- <h2 class="h-sect" style="margin-top:.5em; color:var(--night)">מה מעורר אצלך הזדהות?</h2>
- <p style="margin-top:1em; color:var(--ink-2)">
- לא צריך לדעת מה השם של זה. מספיק שמשפט אחד מרגיש מוכר.
-      </p>
+ <h2 class="h-sect" style="margin-top:.5em; color:var(--night)">אולי משהו מהדברים האלה מוכר לך:</h2>
  </div>
 
  <div class="ident__cloud rev" data-d="1">
-      <span class="idb idb--1">״הראש לא מפסיק לדאוג ממה שעוד לא קרה״</span>
-      <span class="idb idb--2">״החרדה מנהלת אותי, לא אני אותה״</span>
-      <span class="idb idb--3">״אני רואה את כולם. אבל מי רואה אותי?״</span>
-      <span class="idb idb--4">״קשה לי להרפות, גם כשהכול בסדר״</span>
-      <span class="idb idb--5">״התרחקתי מאנשים שהיו קרובים לי״</span>
+      <span class="idb idb--1">״יש לי הכול, אז למה יש לי תחושה שמשהו חסר?״</span>
+      <span class="idb idb--2">״התעייפתי מלנסות לפתור שוב ושוב את אותו הדבר.״</span>
+      <span class="idb idb--3">״אני אומר/ת כן, למרות שבפנים אני ממש רוצה להגיד לא.״</span>
+      <span class="idb idb--4">״למה אני מרגיש/ה אשם/ה בכל פעם שאני בוחר/ת בעצמי?״</span>
+      <span class="idb idb--5">״אני יודע/ת מה אני רוצה, אבל בוחר/ת במה שנכון לאחרים.״</span>
+      <span class="idb idb--6">״קשה לי לקבל מחמאה בלי לחשוב שהם סתם אומרים.״</span>
+      <span class="idb idb--7">״אני מפחד/ת שיגלו שאני לא באמת מספיק טוב/ה כמו שהם חושבים.״</span>
     </div>
  </div>
 </section>
@@ -684,7 +689,10 @@
  <div class="wrap">
  <div class="read center rev">
  <span class="eyebrow">איך עובדים</span>
- <h2 class="h-sect" style="margin-top:.5em; color:var(--night)">מטפלים בשורש.<br>לא רק בסימפטום.</h2>
+ <h2 class="h-sect" style="margin-top:.5em; color:var(--night)">איך נראה התהליך?</h2>
+      <p style="margin-top:1em; font-family:var(--serif); font-weight:500; font-size:clamp(18px,3.8vw,23px); color:var(--terra)">
+        במקום להמשיך לנגב את הרצפה. לבדוק מה גורם לברז לטפטף.
+      </p>
  </div>
 
  <div class="how__bridge rev" data-d="1">
@@ -701,46 +709,47 @@
           <ellipse class="faucet__splash" cx="93" cy="118" rx="10" ry="3" fill="none" stroke="#7FB8D8" stroke-width="2"/>
         </svg>
       </div>
-      <b>דמיינו ברז שמטפטף.</b>
       <span>
-        אפשר לנגב את הרצפה כל יום, ואפשר פעם אחת לסגור את הברז.
-        רוב הזמן אנחנו מנגבים: עוד שיחה על אותו כאב, עוד החלטה שהפעם יהיה אחרת.
-        ובפנים משהו ממשיך לטפטף.
-        <strong style="font-weight:600">בקליניקה הולכים אל הברז עצמו</strong>:
-        אל מה שהגוף והרגש למדו פעם, וממשיכים לעשות עד היום.
+        אפשר להחליף זוגיות, מקום עבודה או סביבה, ועדיין למצוא את עצמנו שוב ושוב באותם אתגרים.<br><br>
+        ומה אם לא מה שקורה בחוץ חוזר על עצמו, אלא הדרך שבה אנחנו פוגשים את מה שקורה?<br>
+        ומה אם מה שקורה בחיים שלנו הוא לא משהו שצריך לפתור, אלא משהו שאפשר ללמוד ממנו?<br><br>
+        <strong style="font-weight:600">במקום לנסות שוב ושוב לשנות את מה שקורה בחוץ, נתחיל לשנות את מה שמפעיל אותנו מבפנים.</strong>
       </span>
     </div>
 
  <div class="steps rev" data-d="2">
       <div class="step">
         <span class="step__n">1</span>
-        <h3>מוצאים יחד מה הדפוס</h3>
+        <h3>הגדרת כיוון</h3>
         <p>
-          שיחה פשוטה, בגובה העיניים. בלי לחפור בעבר ובלי להיזכר בכאב,
-          רק לזהות יחד את הדבר שחוזר אצלכם שוב ושוב.
+          במפגש הראשון נגדיר יחד את מטרות התהליך ונזקק מהן איזו מציאות היית רוצה ליצור.
+          זה המצפן שמלווה את התהליך ומחזיק את הכיוון לאורך הדרך.
         </p>
       </div>
       <div class="step">
         <span class="step__n">2</span>
-        <h3>משחררים אותו מהמקום</h3>
+        <h3>הרחבת התודעה</h3>
         <p>
-          עבודה עדינה בכלים של השיטה, שמדברת לא רק אל המחשבות אלא גם אל מה
-          שהגוף והנפש מחזיקים. בלי מגע ובלי שיעורי בית. את ההקלה מרגישים בגוף.
+          דרך שיחה בגובה העיניים על מה שקורה בחיים, נזהה את הדפוסים והמנגנונים שמפעילים
+          אותנו ונתבונן במה שנמצא מתחת לתגובה האוטומטית. נפתח נקודות מבט חדשות והבנה
+          עמוקה יותר של האופן שבו אנחנו מפרשים וחווים את המציאות. ככל שהתודעה תתרחב,
+          יפתחו אפשרויות חדשות שלא היו זמינות קודם.
         </p>
       </div>
       <div class="step">
         <span class="step__n">3</span>
-        <h3>מתמידים עד ההרגל</h3>
+        <h3>יצירת שינוי</h3>
         <p>
-          מלווים את השינוי בקצב שלכם עד שהוא נהיה טבעי. לא משהו שצריך
-          להתאמץ לשמור עליו, פשוט ככה זה עכשיו.
+          נשלב כלי LTT ברובד האנרגטי ונעבוד עם מה שנחשף בתהליך ברמה עמוקה יותר.
+          העבודה ממשיכה אל תוך החיים: התנסות, חזרה עם מה שקרה, למידה, דיוק וממשיכים משם.
+          עד שהשינוי הופך מהתנסות ומחוויה חדשה, לדרך חיים חדשה.
         </p>
       </div>
     </div>
 
     <p class="how__hold rev" data-d="3">
-      <b>סדרה של 5 עד 8 מפגשים</b>, בקצב שלכם. מחליטים יחד אחרי הראשון,
-      בלי התחייבות מראש, וכדי שהשינוי יחזיק גם חודשים אחרי שיוצאים מהקליניקה.
+      התהליך מתאים לגברים ולנשים שמבקשים ליצור שינוי אמיתי בחיים
+      ומוכנים להיות שותפים פעילים בתהליך.
     </p>
  </div>
 </section>
@@ -749,78 +758,48 @@
 <section class="sect svcwrap" id="services">
   <div class="wrap">
     <div class="read center rev">
-      <span class="eyebrow">מה יש בקליניקה</span>
-      <h2 class="h-sect" style="margin-top:.5em; color:var(--night)">ארבע דרכי עבודה</h2>
-      <p style="margin-top:1em; color:var(--ink-2)">
-        לא צריך לבחור מראש. בשיחת ההיכרות מחליטים יחד מה מתאים.
-      </p>
+      <span class="eyebrow">מה יש בקליניקה?</span>
+      <h2 class="h-sect" style="margin-top:.5em; color:var(--night)">מה מביא אותך לכאן?</h2>
     </div>
 
     <div class="svc rev" data-d="1">
       <div class="svc__card">
-        <h3>ליווי מעמיק</h3>
-        <p class="for">למי שכבר הבינו הכול על עצמם, ובכל זאת שום דבר לא זז</p>
+        <h3>טיפול בשיטת LTT</h3>
+        <p class="for">כשרוצים ליצור שינוי אמיתי בחיים</p>
         <p>
-          תהליך מתמשך שעובד על השורש עצמו, לא על הסימפטום הבודד.
-          מערכות יחסים, זוגיות, ביטחון עצמי, תקיעות חוזרת.
+          חרדה, פחדים · חסמים ודפוסים רגשיים · זוגיות ומערכות יחסים · קושי להציב גבולות ·
+          ריצוי · ביקורת עצמית · ביטחון עצמי · דפוסים שחוזרים על עצמם · תחושת תקיעות ·
+          צמתים ושינויים בחיים
         </p>
-        <details class="svc__deep"><summary>מה זה כולל +</summary><ul>
-          <li>מפגש ראשון: מיפוי. מה חוזר, איפה זה פוגש אתכם ומה כבר ניסיתם</li>
-          <li>עבודה משולבת: שיחה, תודעה וכלים אנרגטיים, על מה שמפעיל ולא רק על מה שמורגש</li>
-          <li>סדרה של 5 עד 8 מפגשים, פרונטלי או מרחוק. בלי שיעורי בית</li>
-        </ul></details>
+        <p style="margin-top:.9em">
+          עבודה דרך שיחה, הרחבת תודעה, כלים להכוונה והתבוננות וכלי LTT ברובד האנרגטי.
+          לעיתים אני משלבת גם קלפים או תקשור כחלק מהעבודה.
+        </p>
+        <p style="margin-top:.9em">
+          <strong style="font-weight:600">המטרה היא לא רק להבין את עצמנו טוב יותר, אלא ליצור שינוי
+          באופן שבו אנחנו חווים, בוחרים ופועלים בחיים.</strong>
+        </p>
         <a class="more" href="contact.html">לשיחת היכרות ←</a>
       </div>
 
       <div class="svc__card">
-        <h3>טיפול בחרדות וחסמים רגשיים</h3>
-        <p class="for">כשהגוף מגיב לפני שיש זמן לחשוב</p>
+        <h3>תקשור אישי</h3>
+        <p class="for">כשרוצים לשפוך אור על צומת, קשר או שאלה שמעסיקים אתכם</p>
         <p>
-          חרדה, פחדים, התקפים, והחסמים שנבנו סביבם. הדברים שמפסיקים לעשות
-          כדי לא לפגוש את זה. עבודה על מה שמפעיל את התגובה.
+          תקשור אישי יכול לסייע לפשט מצבים מורכבים, להבין את מהותם של קשרים,
+          לקבל רעיונות ופתרונות יצירתיים וליצור מרחב פנימי וחיצוני שמאפשר להתבונן
+          על הדברים ממקום נקי ובהיר יותר.
         </p>
-        <details class="svc__deep"><summary>מה זה כולל +</summary><ul>
-          <li>עבודה על מה שמפעיל את התגובה, לא רק על ההרגעה שאחריה</li>
-          <li>כלים לרגעי הצפה, שנשארים אתכם גם אחרי הסדרה</li>
-          <li>בקצב שלכם. אף אחד לא נדחף למקום שהוא לא מוכן לו</li>
-        </ul></details>
-        <a class="more" href="contact.html">לשיחת היכרות ←</a>
-      </div>
-
-      <div class="svc__card">
-        <h3>תקשור והתקשרות</h3>
-        <p class="for">כשרוצים זווית ראייה אחרת על מסלול החיים</p>
-        <p>
-          מפגש שמאיר את התמונה הרחבה: מהות הקשרים עם הסובבים,
-          חיבור לייעוד, ורעיונות מעשיים להתמודדות עם מה שפתוח כרגע.
+        <p style="margin-top:.9em">
+          במהלך המפגש מתקבל מידע מההדרכות ומהיכלי מידע, שמאפשר לראות פוטנציאלים
+          ואפשרויות שונות בתוך מסלול החיים.
         </p>
-        <details class="svc__deep"><summary>מה זה כולל +</summary><ul>
-          <li>מתאים בצומתי בחירה ובמצבי תקיעות, כשקשה לראות בבהירות</li>
-          <li>סשן ממוקד, אפשר גם מרחוק</li>
-          <li>לא מתאים כתחליף לקבלת החלטות. אם זה המצב, אגיד בכנות ואציע תהליך במקום</li>
-        </ul></details>
-        <a class="more" href="contact.html">לשיחת היכרות ←</a>
-      </div>
-
-      <div class="svc__card">
-        <h3>פתיחה בקלפים והכוונה</h3>
-        <p class="for">לצומת שצריך להחליט בה, ולא ברור לאן</p>
-        <p>
-          מפגש ממוקד וקצר יותר. הקלפים משמשים כדי להאיר את מה שכבר יודעים
-          ולא מצליחים לנסח, ומשם הכוונה מעשית לצעד הבא.
+        <p style="margin-top:.9em">
+          <strong style="font-weight:600">כדי לראות יותר, לקבל בהירות, להבין יותר, ולבחור מתוך חופש.</strong>
         </p>
-        <details class="svc__deep"><summary>מה זה כולל +</summary><ul>
-          <li>מפגש ממוקד וקצר יותר, סביב שאלה או צומת אחת</li>
-          <li>הקלפים מאירים את מה שכבר יודעים ולא מצליחים לנסח</li>
-          <li>יוצאים עם כיוון מעשי לצעד הבא</li>
-        </ul></details>
         <a class="more" href="contact.html">לשיחת היכרות ←</a>
       </div>
     </div>
-
-    <p class="center cap rev" data-d="2" style="margin-top:2em">
-      עמוד מפורט לכל טיפול, בדרך. בינתיים אפשר לשאול כל דבר בוואטסאפ.
-    </p>
   </div>
 </section>
 
@@ -846,65 +825,72 @@
       <div class="chap">
         <div class="chap__h"><i>01</i><b>הילדה שפחדה להתעורר</b></div>
         <p>
-          אחת החוויות הקשות שחוויתי בתור ילדה הייתה להתעורר מדי בוקר.
-          אני זוכרת את עצמי פוקחת עיניים, מסתכלת בבעתה על התקרה, אימה משתקת אותי,
-          לא מסוגלת לזוז, ולא מבינה מה משתבש שאני חוזרת כל פעם מחדש למקום המפחיד הזה.
+          אחת החוויות הקשות שאני זוכרת מהילדות הייתה להתעורר בבוקר.
+          הייתי פוקחת עיניים, מביטה בתקרה, מרגישה אימה משתקת ולא מבינה
+          למה אני שוב כאן, במקום שכל כך קשה לי להיות בו.
         </p>
         <p style="margin-top:.9em">
-          מרבית חיי רציתי לחזור הביתה. לא רציתי להיות כאן. לקח לי זמן לקבל ולהבין
-          את מהות הקיום שלי כאן, ולמצוא את הרצון לחיות באמת.
+          לקח לי שנים להבין את עצמי, את החיים ואת הרצון שלי להיות בהם באמת.
         </p>
         <p style="margin-top:.9em; color:var(--gold-hi)">
-          היום אני מתעוררת שמחה, סקרנית, ועם תשוקה לחיות את היום הזה.
-          <strong style="font-weight:600">אני יודעת מה זה לעבור את הדרך הזאת, כי עברתי אותה.</strong>
+          היום אני מתעוררת עם סקרנות ותשוקה לחיות.
+          <strong style="font-weight:600">אני יודעת מה זה לעבור דרך ארוכה אל החיים, כי עברתי אותה בעצמי.</strong>
         </p>
       </div>
 
       <div class="chap">
-        <div class="chap__h"><i>02</i><b>ומשם, לאלקטרוניקה ולהייטק</b></div>
+        <div class="chap__h"><i>02</i><b>מהייטק לחקר האדם</b></div>
         <p>
-          מגיל צעיר נמשכתי למקצועות ריאליים. בתיכון למדתי במגמת חשמל ואלקטרוניקה,
-          ומשם המסלול להייטק היה טבעי וסלול. במשך 14 שנים עבדתי באינטל,
-          תכנתתי מחשבים ומכונות, הסתכלתי על מערכות, על תהליכים ועל מגמות.
+          מגיל צעיר נמשכתי לעולמות הריאליים. למדתי חשמל ואלקטרוניקה,
+          ובהמשך עבדתי 14 שנים באינטל. תכנתתי מחשבים ומכונות, ניתחתי מערכות
+          ותהליכים וחיפשתי להבין איך דברים עובדים.
         </p>
         <p style="margin-top:.9em">
-          הייתי טובה בזה ואהבתי את מה שעשיתי. את החברים לעבודה, את המנהלים.
-          הרגשתי שאוהבים ומעריכים אותי.
+          זו הייתה הדרך שבה למדתי לחשוב: לא לקבל משהו כמובן מאליו.
+          לחקור. לפרק. לבדוק. להבין.
         </p>
         <div class="story__gap" data-todo>
           <b>⬜ להשלים · מה גרם לך לעזוב</b>
-          הטקסט הקיים אומר ״לא עזבתי כי משהו היה חסר״. אם יש רגע, יום או הבנה
-          שהצטברה, הוא נכנס כאן. זה החלק שהופך ״עזבתי הייטק״ לסיפור.
+          אם יש רגע, יום או הבנה שהצטברה, הוא נכנס כאן.
         </div>
       </div>
 
       <div class="chap">
-        <div class="chap__h"><i>03</i><b>״נו באמת!!״</b></div>
+        <div class="chap__h"><i>03</i><b>ואז הגיעו הכלים האנרגטיים</b></div>
         <p class="story__pull">
-          אבל כלי אנרגטי? משהו שלא רואים, שאין לו הוראות הפעלה? נו באמת!!
+          כשפגשתי לראשונה כלים אנרגטיים, הייתי ספקנית.
+          משהו שלא רואים? שאין לו הוראות הפעלה? נו באמת.
         </p>
         <p>
-          לא קניתי את זה בהתחלה. אז עשיתי מה שידעתי לעשות,
+          אז עשיתי את מה שאני יודעת לעשות הכי טוב:
           <strong style="font-weight:600; color:var(--gold-hi)">חקרתי</strong>.
-          התנסיתי על עצמי, בידדתי משתנים, תחקרתי מטופלים כדי להבין מה בדיוק קורה.
+          התנסיתי על עצמי, בדקתי, בידדתי משתנים, שאלתי, השוויתי,
+          וניסיתי שוב ושוב להבין מה באמת קורה.
         </p>
         <p style="margin-top:.9em">
-          וזה עבד. שוב ושוב, גם כשעשיתי הכול כדי להוכיח לעצמי שלא.
+          ומה שהתחיל כספקנות הפך עם הזמן למסע עמוק של חקר האדם, התודעה והמערכת האנרגטית.
         </p>
       </div>
 
       <div class="chap">
         <div class="chap__h"><i>04</i><b>מה אני עושה היום</b></div>
         <p>
-          אני עובדת עם המערכת המורכבת ביותר שקיימת, האדם. הנפש, המוח, התודעה
-          והמערכת האנרגטית שמרכיבים את מי שאנחנו. הרקע הטכנולוגי הוא חלק ממה
-          שמאפשר לי לעשות את זה: פענוח של מנגנונים, ומציאת הדרך לייעל אותם.
+          היום בקליניקה אני מחברת את שתי הדרכים שבהן למדתי להסתכל על העולם:
+          הסקרנות והדיוק של מי שחוקרת מערכות, וההיכרות העמוקה עם העולם הפנימי של האדם.
+        </p>
+        <p style="margin-top:.9em">
+          אני עובדת עם מה שמפעיל אותנו, עם התודעה, עם הנפש ועם המערכת האנרגטית,
+          ומחפשת יחד איתך את הדרך ליצור שינוי אמיתי בחיים.
+        </p>
+        <p style="margin-top:.9em">
+          <strong style="font-weight:600">כי בסופו של דבר, גם אדם הוא מערכת. וכשמבינים איך היא פועלת,
+          אפשר להתחיל ליצור בה משהו חדש.</strong>
         </p>
       </div>
 
       <div class="story__stat">
         <div><b>14</b><span>שנים בהייטק, מתוכן באינטל</span></div>
-        <div><b>2012</b><span>תחילת הלימודים באוניברסיטה הקוסמית</span></div>
+        <div><b>2011</b><span>תחילת הלימודים במרכז לוהאריה</span></div>
         <div><b>2021</b><span>לימודי פסיכודרמה</span></div>
       </div>
     </div>
@@ -955,12 +941,12 @@
  <h2>המסע לדמנהור<em>קווי הזמן של הלב</em></h2>
  <p>
  שישה ימים בקהילה שחפרה מקדשים אל תוך ההר, בידיים, בסתר,
- במשך שש עשרה שנה. בקבוצה קטנה ובליווי שלי.
+ במשך שש עשרה שנה. בקבוצה אינטימית ובליווי אישי שלי.
  </p>
  <div class="band__chips">
  <span>30.10 עד 4.11.2026</span>
  <span>6 ימים · 5 לילות</span>
- <span>קבוצה קטנה</span>
+ <span>קבוצה אינטימית</span>
  </div>
  </div>
  <div class="btn-row rev" data-d="1">
@@ -1085,50 +1071,7 @@
 </footer>
 
 <script src="assets/site.js" defer></script>
-<script>
-/* תרגיל נשימה — 4 פנימה, 2 החזקה, 6 החוצה. דקה אחת. */
-(function () {
-  'use strict';
-  var btn = document.querySelector('.breathe__btn');
-  if (!btn) return;
-  var label = btn.querySelector('span');
-  var hint = document.querySelector('.breathe__hint');
-  var timer = null, cycle = 0;
-  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  var SEQ = [
-    { phase: 'in',   text: 'שאיפה',  ms: 4000 },
-    { phase: 'hold', text: 'רגע',    ms: 2000 },
-    { phase: 'out',  text: 'נשיפה',  ms: 6000 }
-  ];
-
-  function stop() {
-    clearTimeout(timer); timer = null; cycle = 0;
-    btn.setAttribute('data-phase', 'idle');
-    label.textContent = 'לנשום רגע';
-    if (hint) hint.textContent = 'לחצו על העיגול לשלושה סבבי נשימה. ארבע פנימה, שתיים להחזיק, שש החוצה.';
-  }
-
-  function step(i) {
-    var s = SEQ[i % SEQ.length];
-    btn.setAttribute('data-phase', s.phase);
-    label.textContent = s.text;
-    timer = setTimeout(function () {
-      if (i % SEQ.length === SEQ.length - 1) {
-        cycle++;
-        if (cycle >= 3) { stop(); return; }
-      }
-      step(i + 1);
-    }, reduced ? Math.min(s.ms, 1200) : s.ms);
-  }
-
-  btn.addEventListener('click', function () {
-    if (timer) { stop(); return; }
-    if (hint) hint.textContent = 'לחיצה נוספת עוצרת.';
-    step(0);
-  });
-}());
-</script>
 <script>
 /* ── פופקורן עדויות ──
    תגובה חדשה = אובייקט במערך. name חובה, text חובה, color אופציונלי. */
