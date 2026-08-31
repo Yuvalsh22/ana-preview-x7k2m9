@@ -90,41 +90,74 @@
   border:1px solid rgba(242,200,121,.6);
   border-radius:12px 108px 12px 12px; pointer-events:none;
 }
-.hero__bgm{ display:none }
+.hero__aura{ display:none }
+.hero__scroll{ display:none }
+@keyframes auraDrift{ from{ transform:translate(0,0) scale(1) } to{ transform:translate(26px,-20px) scale(1.14) } }
+@keyframes twinkle{ 0%,100%{ opacity:.15; transform:scale(.75) } 50%{ opacity:.95; transform:scale(1.2) } }
+@keyframes archBreathe{ 0%,100%{ transform:scale(1); opacity:.65 } 50%{ transform:scale(1.02); opacity:1 } }
+@keyframes cueFloat{ 0%,100%{ transform:translate(-50%,0) } 50%{ transform:translate(-50%,7px) } }
 @media (max-width:900px){
-  /* ההירו: מסך מלא. הפורטרט = הרקע. הטקסט צף מעל, מעוגן למטה */
+  /* ההירו: פורטרט בקשת שער, רקע חי, רמז גלילה */
   .hero{
     min-height:calc(100svh - 66px);
-    display:flex; flex-direction:column; justify-content:flex-end;
-    padding-block:0 26px;
-  }
-  .hero__bgm{
-    display:block; position:absolute; inset:0; z-index:0;
-    background-image:
-      linear-gradient(180deg,
-        rgba(253,248,236,0) 24%,
-        rgba(253,248,236,.62) 42%,
-        rgba(251,245,231,.94) 56%,
-        #FBF5E7 68%),
-      url("images/anna-hero.jpg");
-    background-size:cover, auto 128%;
-    background-position:center, 42% 62%;
-    background-repeat:no-repeat;
+    display:flex; flex-direction:column;
+    padding-block:8px 56px; overflow:hidden;
   }
   .hero__arcs{ display:none }
-  .hero__grid{ display:block; position:relative; z-index:2 }
-  .hero__fig{ display:none }
+  .hero__aura{ display:block; position:absolute; inset:0; z-index:0; pointer-events:none }
+  .hero__aura .au{ position:absolute; border-radius:50%; filter:blur(36px); opacity:.55 }
+  .au1{ width:270px; height:270px; left:-70px; top:-40px;
+    background:radial-gradient(circle, rgba(242,200,121,.55), rgba(242,200,121,0) 70%);
+    animation:auraDrift 16s ease-in-out infinite alternate }
+  .au2{ width:230px; height:230px; right:-80px; top:170px;
+    background:radial-gradient(circle, rgba(96,168,162,.35), rgba(96,168,162,0) 70%);
+    animation:auraDrift 21s ease-in-out infinite alternate-reverse }
+  .au3{ width:260px; height:260px; left:30%; bottom:-90px;
+    background:radial-gradient(circle, rgba(206,124,104,.32), rgba(206,124,104,0) 70%);
+    animation:auraDrift 26s ease-in-out infinite alternate }
+  .hero__aura .sp{ position:absolute; font-style:normal; color:var(--gold);
+    animation:twinkle 4.4s ease-in-out infinite }
+  .sp1{ top:15%; left:11%; font-size:13px; animation-delay:.4s }
+  .sp2{ top:8%; right:13%; font-size:10px; animation-delay:1.6s }
+  .sp3{ top:43%; right:6%; font-size:12px; animation-delay:2.8s }
+
+  .hero__grid{ display:flex; flex-direction:column; position:relative; z-index:2; margin-block:auto }
   .hero__grid > .rev{ text-align:center }
-  .hero h1{ font-size:clamp(26px,7vw,32px); line-height:1.24; margin-block:.35em .3em }
-  .hero__mantra{ font-size:clamp(19px,5vw,24px) }
-  .hero__svc{ justify-content:center; border-top:0; padding-top:0; margin-top:1em }
+
+  /* פורטרט בקשת: שער */
+  .hero__fig{ order:-1; display:block; position:relative; inset:auto; transform:none;
+    width:min(55vw,212px); margin:12px auto 16px }
+  .hero__halo{ display:none }
+  .hero__fig img{ display:block; width:100%; aspect-ratio:4/4.9; object-fit:cover; object-position:50% 18%;
+    border-radius:50% 50% 8% 8% / 41% 41% 6% 6%;
+    box-shadow:0 22px 44px -24px rgba(26,18,8,.38) }
+  .hero__fig::before{ content:''; position:absolute; inset:-9px;
+    border:1.5px solid rgba(217,168,78,.6);
+    border-radius:50% 50% 9% 9% / 41% 41% 7% 7%;
+    animation:archBreathe 5.2s ease-in-out infinite }
+  .hero__fig::after{ content:''; position:absolute; inset:0; pointer-events:none;
+    border-radius:50% 50% 8% 8% / 41% 41% 6% 6%;
+    background:linear-gradient(180deg, rgba(251,245,231,0) 80%, rgba(251,245,231,.45)) }
+
+  .hero h1{ font-size:clamp(23px,6vw,28px); line-height:1.25; margin-block:.3em .28em }
+  .hero__mantra{ font-size:clamp(17px,4.6vw,21px) }
+  .hero__svc{ justify-content:center; border-top:0; padding-top:0; margin-top:.8em }
   .hero__svc span{ background:rgba(255,253,248,.92); box-shadow:0 2px 10px -4px rgba(26,18,8,.25) }
-  .hero__cta{ margin-top:1.3em }
-  .hero__cta .btn--gold{ width:100%; min-height:56px; font-size:17.5px }
-  .hero__cta .btn--line{ width:100%; min-height:48px; background:rgba(255,253,248,.8) }
-  .hero__meta{ margin-top:1.1em; justify-content:center; gap:6px 14px; padding-top:0; border-top:0 }
-  .hero__meta div{ font-size:14px }
+  .hero__cta{ margin-top:1.05em }
+  .hero__cta .btn--gold{ width:100%; min-height:52px; font-size:17px }
+  .hero__cta .btn--line{ width:100%; min-height:44px; background:rgba(255,253,248,.8) }
+  .hero__meta{ margin-top:.85em; justify-content:center; gap:4px 12px; padding-top:0; border-top:0 }
+  .hero__meta div{ font-size:12.5px }
   .hero__meta b{ display:inline; margin-inline-end:4px }
+
+  .hero__scroll{ display:flex; position:absolute; left:50%; bottom:10px; transform:translateX(-50%); z-index:3;
+    width:38px; height:38px; border-radius:50%; align-items:center; justify-content:center;
+    border:1px solid rgba(217,168,78,.55); color:var(--terra);
+    background:rgba(255,253,248,.65);
+    animation:cueFloat 2.6s ease-in-out infinite }
+}
+@media (prefers-reduced-motion:reduce){
+  .hero__aura .au, .hero__aura .sp, .hero__scroll, .hero__fig::before{ animation:none }
 }
 
 /* ---------------------------------------------------- נשימה · v3 port -- */
@@ -630,7 +663,10 @@
 
 <!-- ═══════════════════════════ הירו ═══════════════════════════ -->
 <section class="hero">
-  <div class="hero__bgm" aria-hidden="true"></div>
+  <div class="hero__aura" aria-hidden="true">
+    <i class="au au1"></i><i class="au au2"></i><i class="au au3"></i>
+    <b class="sp sp1">&#10022;</b><b class="sp sp2">&#10022;</b><b class="sp sp3">&#10022;</b>
+  </div>
  <svg class="hero__arcs" viewBox="0 0 1000 500" aria-hidden="true" fill="none">
  <g stroke="#D9A84E" stroke-width="1" opacity=".5">
  <path d="M60 500a440 440 0 01880 0"/><path d="M150 500a350 350 0 01700 0"/>
@@ -672,10 +708,13 @@
  <img src="images/anna-hero.jpg" alt="אנה גורן" width="1000" height="1250" fetchpriority="high" decoding="async">
  </figure>
  </div>
+ <a class="hero__scroll" href="#pause" aria-label="להמשך הדף">
+   <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+ </a>
 </section>
 
 <!-- ═══════════════════ רגע לנשום ═══════════════════ -->
-<section class="sect sect--tight breathe">
+<section class="sect sect--tight breathe" id="pause">
   <div class="wrap read rev">
     <span class="eyebrow">רגע לפני שממשיכים</span>
     <h2 class="h-sect" style="margin-top:.5em; color:var(--night)">יש משהו שכדאי לבדוק.</h2>
